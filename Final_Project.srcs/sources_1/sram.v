@@ -41,10 +41,36 @@ end
 // ------------------------------------
 // SRAM write operation
 // ------------------------------------
+// always@(posedge clk)
+// begin
+//   if (en & we)
+//     RAM[addr] <= data_i;
+// end
+
+endmodule
+
+
+module sram_background
+ (input clk, input we, input en,
+  input  is_black,
+  input color_change,
+  input  [12-1 : 0] data_i,
+  output reg [12-1 : 0] data_o);
+
+integer idx;
+
 always@(posedge clk)
 begin
   if (en & we)
-    RAM[addr] <= data_i;
+    data_o <= data_i;
+  else if(is_black)
+    data_o <= 12'h0;
+   else if(color_change)
+    data_o <= 12'hBEF;
+   else  
+    data_o <= 12'hFEB;
+
 end
+
 
 endmodule
