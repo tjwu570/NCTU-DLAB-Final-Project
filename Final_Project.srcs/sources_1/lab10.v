@@ -1,26 +1,22 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Dept. of Computer Science, National Chiao Tung University
-// Engineer: Chun-Jen Tsai 
+// Company: Dept. of Computer Science, National YangMing ChiaoTung Chiao Tung University
+// Engineer: Chinlin-Wu
 // 
-// Create Date: 2018/12/11 16:04:41
-// Design Name: 
-// Module Name: lab9
-// Project Name: 
-// Target Devices: 
+// Create Date: 2022/12/23
+// Design Name: Snake
+// Module Name: Snake
+// Project Name: Final Project 
+// Target Devices: Arty
 // Tool Versions: 
-// Description: A circuit that show the animation of a fish swimming in a seabed
-//              scene on a screen through the VGA interface of the Arty I/O card.
+// Description: A circuit for user to experience the old game, snake.
 // 
-// Dependencies: vga_sync, clk_divider, sram 
+// Dependencies: vga_sync, clk_divider, sram
 // 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module lab10(
+module final(
     input  clk,
     input  reset_n,
     input  [3:0] usr_btn,
@@ -96,7 +92,7 @@ clk_divider#(2) clk_divider0(
 // ------------------------------------------------------------------------
 // The following code describes an initialized SRAM memory block that
 // stores a 320x240 12-bit seabed image, plus two 64x32 fish images.
-sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(VBUF_W*VBUF_H+FISH_W*FISH_H*2))
+sram #(.DATA_WIDTH(12), .ADDR_WIDTH(19), .RAM_SIZE(VBUF_W*VBUF_H+FISH_W*FISH_H*2))
   ram0 (.clk(clk), .we(sram_we), .en(sram_en),
           .addr(sram_addr), .data_i(data_in), .data_o(data_out));
 
@@ -133,9 +129,9 @@ end
 // Note that the width x height of the fish image is 64x32, when scaled-up
 // on the screen, it becomes 128x64. 'pos' specifies the right edge of the
 // fish image.
-assign fish_region =
-           pixel_y >= (FISH_VPOS<<1) && pixel_y < (FISH_VPOS+FISH_H)<<1 &&
-           (pixel_x + 127) >= pos && pixel_x < pos + 1;
+assign fish_region = 0;
+          //  pixel_y >= (FISH_VPOS<<1) && pixel_y < (FISH_VPOS+FISH_H)<<1 &&
+          //  (pixel_x + 127) >= pos && pixel_x < pos + 1;
 
 always @ (posedge clk) begin
   if (~reset_n)
@@ -147,7 +143,11 @@ always @ (posedge clk) begin
   else
     // Scale up a 320x240 image for the 640x480 display.
     // (pixel_x, pixel_y) ranges from (0,0) to (639, 479)
-    pixel_addr <= (pixel_y >> 1) * VBUF_W + (pixel_x >> 1);
+    if(pixel_x > 480) 
+      data_out <= 0;
+    else
+      data_out <= 12'hEC4;
+    //data_out <= (pixel_y/48) * VBUF_W + (pixel_x >> 1);
 end
 // End of the AGU code.
 // ------------------------------------------------------------------------

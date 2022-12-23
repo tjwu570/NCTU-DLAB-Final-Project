@@ -6,14 +6,14 @@
 // must match the size of the sram block exactly.
 
 module sram
-#(parameter DATA_WIDTH = 8, ADDR_WIDTH = 16, RAM_SIZE = 65536)
+#(parameter DATA_WIDTH = 8, ADDR_WIDTH = 19, RAM_SIZE = 65536)
  (input clk, input we, input en,
   input  [ADDR_WIDTH-1 : 0] addr,
   input  [DATA_WIDTH-1 : 0] data_i,
   output reg [DATA_WIDTH-1 : 0] data_o);
 
 // Declareation of the memory cells
-(* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
+// (* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
 
 integer idx;
 
