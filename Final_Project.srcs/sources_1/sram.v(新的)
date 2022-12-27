@@ -8,44 +8,88 @@
 module sram
 #(parameter DATA_WIDTH = 8, ADDR_WIDTH = 19, RAM_SIZE = 65536)
  (input clk, input we, input en,
-  input  [ADDR_WIDTH-1 : 0] addr,
-  input  [DATA_WIDTH-1 : 0] data_i,
-  output reg [DATA_WIDTH-1 : 0] data_o);
+  input  [9:0] x, input [9:0] y,input  [DATA_WIDTH-1 : 0] data_i,output reg [DATA_WIDTH-1 : 0] data_o, input [3:0] b_x,input [3:0] b_y,
+  input is_black,input color_change,
+  input is_food, input food_small,
+  input is_snake, input is_snake_head, input is_bumped,
+  input is_block, input block_transparent);
 
 // Declareation of the memory cells
-// (* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
+ (* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
 
 integer idx;
 
-// ------------------------------------
-// SRAM cell initialization
-// ------------------------------------
-// Initialize the sram cells with the values defined in "image.dat."
-//initial begin
-//    $readmemh("images.mem", RAM);
-//end
+initial begin
+    $readmemh("images.mem", RAM);
+end
 
+localparam back_addr = 0;
+localparam back_rev_addr = 230400;
+localparam food_big_addr = 460800;
+localparam food_small_addr = 460900;
+localparam food_rev_big_addr = 461000;
+localparam food_rev_small_addr = 461100;
+localparam block_addr = 461200;
+localparam snakehead_addr = 461300;
+localparam snake_addr = 461400;
+localparam snakehead_rev_addr = 461500;
+localparam snake_rev_addr = 461600;
+
+reg [32:0] addr;
 // ------------------------------------
 // SRAM read operation
 // ------------------------------------
-always@(posedge clk)
-begin
-  if (en & we)
-    data_o <= data_i;
-  else if(addr % 2)
-    data_o <= 0;
-   else
-    data_o <= 12'hFFF;
+always@(posedge clk) begin
+  if (en & we) data_o <= data_i;
+  else if(is_black) data_o <= 12'h000;
+  else begin
+    if(color_change) begin
+        if(is_snake_head) begin
+            if(is_bumped) data_o <= RAM[snakehead_rev_addr + (b_y*10) + b_x];
+            else data_o <= RAM[snakehead_addr + (b_y*10) + b_x];
+        end
+        else if(is_snake) begin
+            if(is_bumped) data_o <= RAM[snake_rev_addr + (b_y*10) + b_x];
+            else data_o <= RAM[snake_addr + (b_y*10) + b_x];
+        end
+        else if(is_food) begin
+            if(~food_small)data_o <= RAM[food_big_addr + (b_y*10) + b_x];
+            else data_o <= RAM[food_small_addr + (b_y*10) + b_x];
+        end
+        else if(is_block && ~block_transparent) begin
+            data_o <= RAM[block_addr + (b_y*10) + b_x];
+        end
+        else data_o <= RAM[back_addr+480*y+x];
+    end
+    else begin
+        if(is_snake_head) begin
+            if(is_bumped) data_o <= RAM[snakehead_rev_addr + (b_y*10) + b_x];
+            else data_o <= RAM[snakehead_addr + (b_y*10) + b_x];
+        end
+        else if(is_snake) begin
+            if(is_bumped) data_o <= RAM[snake_rev_addr + (b_y*10) + b_x];
+            else data_o <= RAM[snake_addr + (b_y*10) + b_x];
+        end
+        else if(is_food) begin
+            if(~food_small)data_o <= RAM[food_rev_big_addr + (b_y*10) + b_x];
+            else data_o <= RAM[food_rev_small_addr + (b_y*10) + b_x];
+        end
+        else if(is_block && ~block_transparent) begin
+            data_o <= RAM[block_addr + (b_y*10) + b_x];
+        end
+        else data_o <= RAM[back_rev_addr+480*y+x];
+    end
+  end
 end
 
 // ------------------------------------
 // SRAM write operation
 // ------------------------------------
-// always@(posedge clk)
-// begin
-//   if (en & we)
-//     RAM[addr] <= data_i;
-// end
+ always@(posedge clk)
+ begin
+   if (en & we)
+     RAM[addr] <= data_i;
+ end
 
 endmodule
 
@@ -57,6 +101,9 @@ module sram_background
   input  [12-1 : 0] data_i,
   output reg [12-1 : 0] data_o,
   input is_food,
+  input is_snake,
+  input is_snake_head, 
+  input is_bumped,
   input is_block, input block_transparent);
 
 integer idx;
@@ -70,7 +117,15 @@ begin
       data_o <= 12'h0;
   end
   else if(color_change) begin
-      if(is_food) begin 
+      if (is_snake_head) begin
+        if (is_bumped) data_o <= 12'hF00;
+        else data_o <= 12'h0E0;
+      end
+      else if (is_snake) begin
+        if (is_bumped) data_o <= 12'hF0F;
+        else data_o <= 12'h080;
+      end
+      else if(is_food) begin 
           data_o <= 12'h123;
       end
       else if(is_block && ~block_transparent) begin
@@ -81,7 +136,15 @@ begin
       end
   end
   else  begin
-      if(is_food) begin
+      if (is_snake_head) begin
+        if (is_bumped) data_o <= 12'hF00;
+        else data_o <= 12'h0E0;
+      end
+      else if (is_snake) begin
+        if (is_bumped) data_o <= 12'hF00;
+        else data_o <= 12'h0E0;
+      end
+      else if(is_food) begin
           data_o <= 12'h123;
       end
       else if(is_block && ~block_transparent) begin
