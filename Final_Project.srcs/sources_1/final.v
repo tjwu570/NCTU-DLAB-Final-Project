@@ -63,7 +63,7 @@ reg this_pos_is_food;
 reg this_pos_is_block;
 reg this_pos_is_snake;
 reg this_pos_is_snake_head;
-wire food, snake, block, snake_head;
+wire food, snake, block, snake_head, score;
 reg [5:0] current_pos_x = 0;
 reg [5:0] current_pos_y = 0;
 reg [3:0] b_x;
@@ -132,7 +132,7 @@ debounce btn_db3(.clk(clk), .btn_input(usr_btn[3]), .btn_output(btn_level[3]));
            .is_food(this_pos_is_food), .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head),
            .is_bumped(red), 
             .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));*/
-sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(461700))
+sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(511700))
   ram0 (.clk(clk), .we(sram_we), .en(sram_en),
           .x(pixel_x), .y(pixel_y), .data_i(data_in), .data_o(data_out), .b_x(b_x), .b_y(b_y),
           .is_black(background_is_black), .color_change(usr_sw[0]),
@@ -258,7 +258,7 @@ always @(posedge clk or negedge reset_n) begin
             end
             else hit_wall_timer <= hit_wall_timer + 1;
         end
-        else if (snake_clock == 100000000) red<= 0;
+        else if (snake_clock == 0) red<= 0;
         else red <= red;
     end
 end
@@ -275,6 +275,8 @@ always@(posedge clk) begin
         snake_appear[7] <= 0;
         snake_appear[8] <= 0;
         snake_appear[9] <= 0;
+
+        snake_length <= 5;
     end
     else begin
         if(eat)begin
@@ -445,6 +447,16 @@ always@(posedge clk) begin
     else begin
         if(block) this_pos_is_block <= 1;
         else this_pos_is_block <= 0;
+    end
+end
+/////////////////////////////////////////////////////////////score
+always@(posedge clk) begin
+    if(~reset_n) begin
+        
+    end
+    else begin
+        if(score) this_pos_is_score <= 0;
+        else this_pos_is_score <= 0;
     end
 end
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

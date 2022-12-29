@@ -34,6 +34,16 @@ localparam snakehead_addr = 461300;
 localparam snake_addr = 461400;
 localparam snakehead_rev_addr = 461500;
 localparam snake_rev_addr = 461600;
+localparam zero_addr = 461700;
+localparam one_addr = 466700;
+localparam two_addr = 471700;
+localparam three_addr = 476700;
+localparam four_addr = 481700;
+localparam five_addr = 486700;
+localparam six_addr = 491700;
+localparam seven_addr = 496700;
+localparam eight_addr = 501700;
+localparam nine_addr = 506700;
 
 reg [32:0] addr;
 // ------------------------------------

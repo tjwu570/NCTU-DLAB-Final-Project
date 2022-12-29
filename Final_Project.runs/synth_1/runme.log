@@ -10,7 +10,7 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source final.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 378.379 ; gain = 64.676
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 378.816 ; gain = 63.699
 Command: read_checkpoint -auto_incremental -incremental C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -23,10 +23,10 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12224
+INFO: [Synth 8-7075] Helper process launched with PID 3036
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1191.578 ; gain = 408.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1192.152 ; gain = 408.645
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'final' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
 INFO: [Synth 8-6157] synthesizing module 'vga_sync' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/vga_sync.v:19]
@@ -36,147 +36,46 @@ INFO: [Synth 8-6157] synthesizing module 'clk_divider' [C:/Users/tjwin/Documents
 INFO: [Synth 8-6155] done synthesizing module 'clk_divider' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/clk_divider.v:21]
 INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/debounce.v:21]
 INFO: [Synth 8-6155] done synthesizing module 'debounce' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/debounce.v:21]
+WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match port width (1) of module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:121]
 WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match port width (1) of module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:122]
 WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match port width (1) of module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:123]
 WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match port width (1) of module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:124]
-WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match port width (1) of module 'debounce' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:125]
 INFO: [Synth 8-6157] synthesizing module 'sram' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:8]
 	Parameter DATA_WIDTH bound to: 12 - type: integer 
 	Parameter ADDR_WIDTH bound to: 18 - type: integer 
 	Parameter RAM_SIZE bound to: 461700 - type: integer 
 INFO: [Synth 8-3876] $readmem data file 'images.mem' is read successfully [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'sram' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:8]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:295]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:295]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:296]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:296]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:297]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:297]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:298]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:298]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:299]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:299]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:308]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:309]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:317]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:318]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:326]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:327]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:335]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:336]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:344]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:345]
-INFO: [Common 17-14] Message 'Synth 8-324' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6155] done synthesizing module 'final' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
 WARNING: [Synth 8-3848] Net addr in module/entity sram does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:38]
-WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:455]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[1] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[3] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[4] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[5] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_y_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:256]
+WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:456]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[1] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[3] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[4] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[5] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_y_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
+WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:255]
 WARNING: [Synth 8-3848] Net usr_led in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:24]
-WARNING: [Synth 8-3848] Net zero in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:98]
+WARNING: [Synth 8-3848] Net zero in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:97]
 WARNING: [Synth 8-7129] Port usr_led[3] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[2] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[1] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[0] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_sw[3] in module final is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.305 ; gain = 733.977
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.305 ; gain = 733.977
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.305 ; gain = 733.977
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1517.305 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1517.344 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -187,32 +86,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/final_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1540.863 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1570.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1540.863 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1570.402 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1540.863 ; gain = 757.535
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1540.863 ; gain = 757.535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1540.863 ; gain = 757.535
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1540.863 ; gain = 757.535
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1570.402 ; gain = 786.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -232,7 +131,7 @@ Detailed RTL Component Info :
 	               12 Bit    Registers := 2     
 	               10 Bit    Registers := 2     
 	                8 Bit    Registers := 1     
-	                6 Bit    Registers := 38    
+	                6 Bit    Registers := 48    
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
 	                1 Bit    Registers := 31    
@@ -281,7 +180,7 @@ WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "fi
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:50 ; elapsed = 00:01:55 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:50 ; elapsed = 00:01:54 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -312,13 +211,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:05 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Timing Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -338,7 +237,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:03 ; elapsed = 00:02:08 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Technology Mapping : Time (s): cpu = 00:02:03 ; elapsed = 00:02:07 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -356,37 +255,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:09 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished IO Insertion : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:09 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -415,43 +314,43 @@ Report Cell Usage:
 |2     |CARRY4  |    97|
 |3     |DSP48E1 |     2|
 |5     |LUT1    |    16|
-|6     |LUT2    |    72|
-|7     |LUT3    |    56|
-|8     |LUT4    |    88|
-|9     |LUT5    |   159|
-|10    |LUT6    |   423|
+|6     |LUT2    |    68|
+|7     |LUT3    |    57|
+|8     |LUT4    |    90|
+|9     |LUT5    |   172|
+|10    |LUT6    |   437|
 |11    |MUXF7   |    17|
 |12    |RAM64M  |   203|
-|13    |FDCE    |    43|
-|14    |FDPE    |    24|
-|15    |FDRE    |   274|
-|16    |FDSE    |    10|
+|13    |FDCE    |    76|
+|14    |FDPE    |    51|
+|15    |FDRE    |   272|
+|16    |FDSE    |    12|
 |17    |IBUF    |     9|
 |18    |OBUF    |    14|
 |19    |OBUFT   |     4|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:54 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.230 ; gain = 2774.344
-Synthesis Optimization Complete : Time (s): cpu = 00:02:10 ; elapsed = 00:02:15 . Memory (MB): peak = 3581.230 ; gain = 2797.902
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:53 ; elapsed = 00:02:11 . Memory (MB): peak = 3581.355 ; gain = 2744.789
+Synthesis Optimization Complete : Time (s): cpu = 00:02:09 ; elapsed = 00:02:14 . Memory (MB): peak = 3581.355 ; gain = 2797.848
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 3581.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 3581.355 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 319 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3581.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3581.355 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 203 instances were transformed.
   RAM64M => RAM64M (RAMD64E(x4)): 203 instances
 
-Synth Design complete, checksum: d9df67ce
+Synth Design complete, checksum: 7e4e2240
 INFO: [Common 17-83] Releasing license: Synthesis
-35 Infos, 134 Warnings, 0 Critical Warnings and 0 Errors encountered.
+34 Infos, 34 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:16 ; elapsed = 00:02:24 . Memory (MB): peak = 3581.230 ; gain = 3175.512
+synth_design: Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 3581.355 ; gain = 3175.223
 INFO: [Common 17-1381] The checkpoint 'C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file final_utilization_synth.rpt -pb final_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 18:28:29 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 19:57:42 2022...
