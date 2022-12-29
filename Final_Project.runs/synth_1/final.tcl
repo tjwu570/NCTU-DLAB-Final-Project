@@ -88,8 +88,10 @@ set_property ip_output_repo c:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_mem C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/images.mem
 read_verilog -library xil_defaultlib {
   C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/clk_divider.v
+  C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/debounce.v
   C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v
   C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/vga_sync.v
   C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v

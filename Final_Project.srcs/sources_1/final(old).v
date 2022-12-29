@@ -66,34 +66,22 @@ reg this_pos_is_snake_head;
 wire food, snake, block, snake_head;
 reg [5:0] current_pos_x = 0;
 reg [5:0] current_pos_y = 0;
-reg [3:0] b_x;
-reg [3:0] b_y;
 
-reg [3:0]food_amount = 10;
+reg food_amount = 10;
 reg [5:0] food_pos_x [0:9];
 reg [5:0] food_pos_y [0:9];
-reg [3:0] snake_length;
 reg [5:0] snake_pos_x[0:4];
 reg [5:0] snake_pos_y[0:4];
-reg [7:0]block_amount = 6;
+reg block_amount = 6;
 reg [5:0] block_pos_x [0:100];
 reg [5:0] block_pos_y [0:100];
 
-wire snake_speed;
-reg food_appear[0:9];
-reg snake_appear[0:9];
-
 reg [31:0] snake_clock;
-reg [31:0] food_clock;
-reg [31:0] hit_wall_timer;
 wire up_block, down_block, right_block, left_block, front_block;
-reg food_size;
 wire [1:0] btn_level [3:0];
 reg [1:0] btn_pressed [3:0];
 reg  [1:0] prev_btn_level[3:0];
 wire bump;
-wire hit_up_wall,hit_down_wall,hit_left_wall,hit_right_wall,hit_wall;
-wire eat;
 reg red;
 wire zero;
 integer i;
@@ -127,19 +115,13 @@ debounce btn_db3(.clk(clk), .btn_input(usr_btn[3]), .btn_output(btn_level[3]));
 // ------------------------------------------------------------------------
 // The following code describes an initialized SRAM memory block that
 // stores a 320x240 12-bit seabed image, plus two 64x32 fish images.
-/*sram_background 
+sram_background 
   ram0 (.clk(clk), .we(sram_we), .en(sram_en),
           .is_black(background_is_black), .color_change(usr_sw[0]), .data_i(data_in), .data_o(data_out),
            .is_food(this_pos_is_food), .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head),
            .is_bumped(red), 
-            .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));*/
-sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(461500))
-  ram0 (.clk(clk), .we(sram_we), .en(sram_en),
-          .x(pixel_x), .y(pixel_y), .data_i(data_in), .data_o(data_out), .b_x(b_x), .b_y(b_y),
-          .is_black(background_is_black), .color_change(usr_sw[0]),
-          .is_food(this_pos_is_food), .food_small(food_size),
-          .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head), .is_bumped(red), 
-          .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));
+            .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));
+
 assign sram_we = zero; // In this demo, we do not write the SRAM. However, if
                              // you set 'sram_we' to 0, Vivado fails to synthesize
                              // ram0 as a BRAM -- this is a bug in Vivado.
@@ -162,25 +144,19 @@ end
 always @(*) begin
     for (i=0;i<4;i=i+1) btn_pressed[i] = (btn_level[i] & ~prev_btn_level[i]);
 end
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////initialize
+// ------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 always@(posedge clk) begin
-    b_x <= pixel_x - (current_pos_x * 10);
-    b_y <= pixel_y - (current_pos_y * 10);
-end
-always@(posedge clk) begin
-    if(~reset_n) begin
-        food_pos_x[0] <= 6'd17; food_pos_y[0] <= 6'd11;
-        food_pos_x[1] <= 6'd22; food_pos_y[1] <= 6'd2;
-        food_pos_x[2] <= 6'd32; food_pos_y[2] <= 6'd23;
-        food_pos_x[3] <= 6'd40; food_pos_y[3] <= 6'd14;
-        food_pos_x[4] <= 6'd15; food_pos_y[4] <= 6'd5;
-        food_pos_x[5] <= 6'd36; food_pos_y[5] <= 6'd36;
-        food_pos_x[6] <= 6'd47; food_pos_y[6] <= 6'd7;
-        food_pos_x[7] <= 6'd28; food_pos_y[7] <= 6'd18;
-        food_pos_x[8] <= 6'd29; food_pos_y[8] <= 6'd9;
-        food_pos_x[9] <= 6'd10; food_pos_y[9] <= 6'd10;
-    end
+    food_pos_x[0] <= 6'd17; food_pos_y[0] <= 6'd11;
+    food_pos_x[1] <= 6'd22; food_pos_y[1] <= 6'd2;
+    food_pos_x[2] <= 6'd32; food_pos_y[2] <= 6'd23;
+    food_pos_x[3] <= 6'd40; food_pos_y[3] <= 6'd14;
+    food_pos_x[4] <= 6'd15; food_pos_y[4] <= 6'd5;
+    food_pos_x[5] <= 6'd36; food_pos_y[5] <= 6'd36;
+    food_pos_x[6] <= 6'd47; food_pos_y[6] <= 6'd7;
+    food_pos_x[7] <= 6'd28; food_pos_y[7] <= 6'd18;
+    food_pos_x[8] <= 6'd29; food_pos_y[8] <= 6'd9;
+    food_pos_x[9] <= 6'd10; food_pos_y[9] <= 6'd10;
 end
 
 always@(posedge clk) begin
@@ -192,7 +168,7 @@ always@(posedge clk) begin
     block_pos_x[5] <= 6'd3; block_pos_y[5] <= 6'd6;
 end
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake bump
+
 assign up_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]-1 == block_pos_y[0])) |
                   ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]-1 == block_pos_y[1])) |
                   ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]-1 == block_pos_y[2])) |
@@ -228,67 +204,33 @@ assign front_block = ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_p
                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[4]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[4])) |
                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[5]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[5]));
                      
-assign hit_left_wall = (snake_pos_x[0]==0); 
-assign hit_right_wall = (snake_pos_x[0]==47); 
-assign hit_up_wall = (snake_pos_y[0]==0); 
-assign hit_down_wall = (snake_pos_y[0]==47);
-assign hit_wall = (snake_pos_x[0]==0 && snake_pos_x[1]==1) | (snake_pos_x[0]==47 && snake_pos_x[1]==46) | (snake_pos_y[0]==0 && snake_pos_y[1]==1) | (snake_pos_y[0]==47 && snake_pos_y[1]==46);
-                     
 always @(posedge clk or negedge reset_n) begin
   if (~reset_n || snake_clock > 100000000 || bump) snake_clock <= 0;
   else snake_clock <= snake_clock + 1;
 end
 
-assign snake_speed = usr_sw[2];
+assign bump = (btn_pressed[0] && right_block) | (btn_pressed[1] && left_block) | (btn_pressed[2] && up_block) | (btn_pressed[3] && down_block | (front_block)); // if we want to count score, we need to add the snake clock count like (bump  && snake_count == 100000000) 
 
-assign bump = (btn_pressed[0] && (right_block | hit_right_wall)) | 
-              (btn_pressed[1] && (left_block | hit_left_wall)) | 
-              (btn_pressed[2] && (up_block | hit_up_wall)) | 
-              (btn_pressed[3] && (down_block | hit_down_wall)); // if we want to count score, we need to add the snake clock count like (bump  && snake_count == 100000000) 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake move
 always @(posedge clk or negedge reset_n) begin
     if (~reset_n) red <= 0;
     else begin
         if (bump) red <= 1;
-        else if(hit_wall | front_block) begin
-            if(hit_wall_timer == 100000000) begin
-                hit_wall_timer <= 0;
-                red <= 1;
-            end
-            else hit_wall_timer <= hit_wall_timer + 1;
-        end
         else if (snake_clock == 100000000) red<= 0;
         else red <= red;
     end
 end
 
-always@(posedge clk) begin
-    if(~reset_n) begin
-        for(i=0;i<5;i=i+1) snake_appear[i] <= 1;
-        for(i=5;i<10;i=i+1) snake_appear[i] <= 0;
-    end
-    else begin
-        if(eat) begin
-            snake_appear[snake_length] = 1;
-            snake_length = snake_length + 1;
-        end
-    end
-end
 always @(posedge clk or negedge reset_n) begin
     if (~reset_n) begin
-        snake_pos_x[0] <= 6'd20; snake_pos_y[0] <= 6'd40;
-        snake_pos_x[1] <= 6'd21; snake_pos_y[1] <= 6'd40;
-        snake_pos_x[2] <= 6'd22; snake_pos_y[2] <= 6'd40;
-        snake_pos_x[3] <= 6'd23; snake_pos_y[3] <= 6'd40;
-        snake_pos_x[4] <= 6'd24; snake_pos_y[4] <= 6'd40;
-        snake_pos_x[5] <= 6'd25; snake_pos_y[5] <= 6'd40;
-        snake_pos_x[6] <= 6'd26; snake_pos_y[6] <= 6'd40;
-        snake_pos_x[7] <= 6'd27; snake_pos_y[7] <= 6'd40;
-        snake_pos_x[8] <= 6'd28; snake_pos_y[8] <= 6'd40;
-        snake_pos_x[9] <= 6'd29; snake_pos_y[9] <= 6'd40;
+        snake_pos_x[0] <= 6'd10; snake_pos_y[0] <= 6'd40;
+        snake_pos_x[1] <= 6'd11; snake_pos_y[1] <= 6'd40;
+        snake_pos_x[2] <= 6'd12; snake_pos_y[2] <= 6'd40;
+        snake_pos_x[3] <= 6'd13; snake_pos_y[3] <= 6'd40;
+        snake_pos_x[4] <= 6'd14; snake_pos_y[4] <= 6'd40;
     end
+
     else begin
-        if (btn_pressed[0] && snake_pos_x[0] >= snake_pos_x[1] && !right_block && !hit_right_wall) begin // if we want to change color while bumping into wall, add a if else statement below (if (right_block...))
+        if (btn_pressed[0] && snake_pos_x[0] >= snake_pos_x[1] && !right_block) begin // if we want to change color while bumping into wall, add a if else statement below (if (right_block...))
             
             snake_pos_y[0] <= snake_pos_y[0];
             snake_pos_x[0] <= snake_pos_x[0]+1;
@@ -297,7 +239,7 @@ always @(posedge clk or negedge reset_n) begin
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
-        else if (btn_pressed[1] && snake_pos_x[0] <= snake_pos_x[1] && !left_block && !hit_left_wall) begin
+        else if (btn_pressed[1] && snake_pos_x[0] <= snake_pos_x[1] && !left_block) begin
             snake_pos_y[0] <= snake_pos_y[0];
             snake_pos_x[0] <= snake_pos_x[0]-1;
             for (i=1;i<5;i=i+1) begin
@@ -305,7 +247,7 @@ always @(posedge clk or negedge reset_n) begin
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
-        else if (btn_pressed[2] && snake_pos_y[0] <= snake_pos_y[1] && !up_block && !hit_up_wall) begin
+        else if (btn_pressed[2] && snake_pos_y[0] <= snake_pos_y[1] && !up_block) begin
             snake_pos_y[0] <= snake_pos_y[0]-1;
             snake_pos_x[0] <= snake_pos_x[0];
             for (i=1;i<5;i=i+1) begin
@@ -313,7 +255,7 @@ always @(posedge clk or negedge reset_n) begin
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
-        else if (btn_pressed[3] && snake_pos_y[0] >= snake_pos_y[1] && !down_block && !hit_down_wall) begin
+        else if (btn_pressed[3] && snake_pos_y[0] >= snake_pos_y[1] && !down_block) begin
             snake_pos_y[0] <= snake_pos_y[0]+1;
             snake_pos_x[0] <= snake_pos_x[0];
             for (i=1;i<5;i=i+1) begin
@@ -321,7 +263,7 @@ always @(posedge clk or negedge reset_n) begin
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
-        else if (snake_clock == 30000000+(snake_speed*7000000) && !front_block && !hit_wall)  begin
+        else if (snake_clock == 100000000 && !front_block)  begin
             snake_pos_x[0] <= snake_pos_x[0] + (snake_pos_x[0]-snake_pos_x[1]);
             snake_pos_y[0] <= snake_pos_y[0] + (snake_pos_y[0]-snake_pos_y[1]);
             for (i=1;i<5;i=i+1) begin
@@ -331,22 +273,8 @@ always @(posedge clk or negedge reset_n) begin
         end
     end
 end
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////food eat
-assign eat = (snake_head && food);
 
-always@(posedge clk) begin
-    if(~reset_n) begin
-        for(i=0;i<food_amount;i=i+1) food_appear[i] <= 1;
-    end
-    else if(eat) begin
-        for(i=0;i<food_amount;i=i+1) begin
-            if((snake_pos_x[0] == food_pos_x[i]) && (snake_pos_y[0] == food_pos_y[i])) begin
-                food_appear[i] <= 0;
-            end
-        end
-    end
-end
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////draw
+
 always@(posedge clk) begin
     if(~reset_n) begin
         current_pos_x <= 0;
@@ -358,27 +286,23 @@ always@(posedge clk) begin
     end
 end
 
-assign food = ((current_pos_x == food_pos_x[0]) && (current_pos_y == food_pos_y[0]) && food_appear[0]) |
-              ((current_pos_x == food_pos_x[1]) && (current_pos_y == food_pos_y[1]) && food_appear[1]) | 
-              ((current_pos_x == food_pos_x[2]) && (current_pos_y == food_pos_y[2]) && food_appear[2]) |
-              ((current_pos_x == food_pos_x[3]) && (current_pos_y == food_pos_y[3]) && food_appear[3]) | 
-              ((current_pos_x == food_pos_x[4]) && (current_pos_y == food_pos_y[4]) && food_appear[4]) |
-              ((current_pos_x == food_pos_x[5]) && (current_pos_y == food_pos_y[5]) && food_appear[5]) |
-              ((current_pos_x == food_pos_x[6]) && (current_pos_y == food_pos_y[6]) && food_appear[6]) |
-              ((current_pos_x == food_pos_x[7]) && (current_pos_y == food_pos_y[7]) && food_appear[7]) |
-              ((current_pos_x == food_pos_x[8]) && (current_pos_y == food_pos_y[8]) && food_appear[8]) |
-              ((current_pos_x == food_pos_x[9]) && (current_pos_y == food_pos_y[9]) && food_appear[9]);
 
-assign snake_head = ((current_pos_x == snake_pos_x[0]) && (current_pos_y == snake_pos_y[0]) && snake_appear[0]);
-assign snake = ((current_pos_x == snake_pos_x[1]) && (current_pos_y == snake_pos_y[1]) && snake_appear[1]) | 
-               ((current_pos_x == snake_pos_x[2]) && (current_pos_y == snake_pos_y[2]) && snake_appear[2]) |
-               ((current_pos_x == snake_pos_x[3]) && (current_pos_y == snake_pos_y[3]) && snake_appear[3]) | 
-               ((current_pos_x == snake_pos_x[4]) && (current_pos_y == snake_pos_y[4]) && snake_appear[4]) |
-               ((current_pos_x == snake_pos_x[5]) && (current_pos_y == snake_pos_y[5]) && snake_appear[5]) | 
-               ((current_pos_x == snake_pos_x[6]) && (current_pos_y == snake_pos_y[6]) && snake_appear[6]) |
-               ((current_pos_x == snake_pos_x[7]) && (current_pos_y == snake_pos_y[7]) && snake_appear[7]) |
-               ((current_pos_x == snake_pos_x[8]) && (current_pos_y == snake_pos_y[8]) && snake_appear[8]) | 
-               ((current_pos_x == snake_pos_x[9]) && (current_pos_y == snake_pos_y[9]) && snake_appear[9]);
+assign food = ((current_pos_x == food_pos_x[0]) && (current_pos_y == food_pos_y[0])) |
+              ((current_pos_x == food_pos_x[1]) && (current_pos_y == food_pos_y[1])) | 
+              ((current_pos_x == food_pos_x[2]) && (current_pos_y == food_pos_y[2])) |
+              ((current_pos_x == food_pos_x[3]) && (current_pos_y == food_pos_y[3])) | 
+              ((current_pos_x == food_pos_x[4]) && (current_pos_y == food_pos_y[4])) |
+              ((current_pos_x == food_pos_x[5]) && (current_pos_y == food_pos_y[5])) |
+              ((current_pos_x == food_pos_x[6]) && (current_pos_y == food_pos_y[6])) |
+              ((current_pos_x == food_pos_x[7]) && (current_pos_y == food_pos_y[7])) |
+              ((current_pos_x == food_pos_x[8]) && (current_pos_y == food_pos_y[8])) |
+              ((current_pos_x == food_pos_x[9]) && (current_pos_y == food_pos_y[9]));
+
+assign snake_head = ((current_pos_x == snake_pos_x[0]) && (current_pos_y == snake_pos_y[0]));
+assign snake = ((current_pos_x == snake_pos_x[1]) && (current_pos_y == snake_pos_y[1])) | 
+               ((current_pos_x == snake_pos_x[2]) && (current_pos_y == snake_pos_y[2])) |
+               ((current_pos_x == snake_pos_x[3]) && (current_pos_y == snake_pos_y[3])) | 
+               ((current_pos_x == snake_pos_x[4]) && (current_pos_y == snake_pos_y[4]));
 
 assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y == block_pos_y[0])) |
                ((current_pos_x == block_pos_x[1]) && (current_pos_y == block_pos_y[1])) |
@@ -388,7 +312,7 @@ assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y == block_pos
                ((current_pos_x == block_pos_x[5]) && (current_pos_y == block_pos_y[5]));
        
 
-/////////////////////////////////////////////////////////////snake
+               
 always @(posedge clk or negedge reset_n) begin
     if (~reset_n) this_pos_is_snake <= 0;
     else begin
@@ -396,6 +320,7 @@ always @(posedge clk or negedge reset_n) begin
         else this_pos_is_snake <= 0;
     end
 end
+
 always @(posedge clk or negedge reset_n) begin
     if (~reset_n) this_pos_is_snake_head <= 0;
     else begin
@@ -403,20 +328,7 @@ always @(posedge clk or negedge reset_n) begin
         else this_pos_is_snake_head <= 0;
     end
 end
-/////////////////////////////////////////////////////////////food
-always@(posedge clk) begin
-    if(~reset_n) begin
-        food_clock <= 0;
-        food_size <= 0;
-    end
-    else begin
-        if(food_clock == 5*10000000) begin
-            food_clock <= 0;
-            food_size <= ~food_size;
-        end
-        else food_clock <= food_clock + 1;
-    end
-end
+           
 always@(posedge clk) begin
     if(~reset_n) this_pos_is_food <= 0;
     else begin
@@ -424,7 +336,7 @@ always@(posedge clk) begin
         else this_pos_is_food <= 0;
     end
 end
-/////////////////////////////////////////////////////////////block
+
 always@(posedge clk) begin
     if(~reset_n) this_pos_is_block <= 0;
     else begin
