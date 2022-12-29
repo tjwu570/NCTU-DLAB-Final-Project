@@ -63,7 +63,7 @@ reg this_pos_is_food;
 reg this_pos_is_block;
 reg this_pos_is_snake;
 reg this_pos_is_snake_head;
-wire food, snake, block, snake_head, score;
+wire food, snake, block, snake_head;
 reg [5:0] current_pos_x = 0;
 reg [5:0] current_pos_y = 0;
 reg [3:0] b_x;
@@ -74,7 +74,7 @@ reg [5:0] food_pos_y [0:9];
 reg [3:0] snake_length = 5;
 reg [5:0] snake_pos_x[0:9];
 reg [5:0] snake_pos_y[0:9];
-reg [7:0]block_amount = 6;
+reg [7:0] block_amount = 6;
 reg [5:0] block_pos_x [0:100];
 reg [5:0] block_pos_y [0:100];
 
@@ -132,14 +132,15 @@ debounce btn_db3(.clk(clk), .btn_input(usr_btn[3]), .btn_output(btn_level[3]));
            .is_food(this_pos_is_food), .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head),
            .is_bumped(red), 
             .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));*/
-sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(511700))
+sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(71526))
   ram0 (.clk(clk), .we(sram_we), .en(sram_en),
           .x(pixel_x), .y(pixel_y), .data_i(data_in), .data_o(data_out), .b_x(b_x), .b_y(b_y),
           .is_black(background_is_black), .color_change(usr_sw[0]),
           .is_food(this_pos_is_food), .food_small(food_size),
           .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head), .is_bumped(red), 
           .is_block(this_pos_is_block), .block_transparent(usr_sw[1]),
-          .current_pos_x(current_pos_x), .current_pos_y(current_pos_y)
+          .current_pos_x(current_pos_x), .current_pos_y(current_pos_y),
+          .score_2(score[11:8]), .score_1(score[7:4]), .score_0(score[3:0])
           );
 assign sram_we = zero; // In this demo, we do not write the SRAM. However, if
                              // you set 'sram_we' to 0, Vivado fails to synthesize
@@ -194,6 +195,13 @@ always@(posedge clk) begin
 end
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake bump
+// assign up_block = ((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]-1 >= block_pos_y[0]) && (snake_pos_y[0]-1 <= block_pos_y[5])) ;
+// assign down_block = ((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]+1 >= block_pos_y[0]) && (snake_pos_y[0]+1 <= block_pos_y[5])) ;
+// assign left_block = ((snake_pos_x[0]-1 >= block_pos_x[0]) && (snake_pos_x[0]-1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[5])) ;
+// assign right_block = ((snake_pos_x[0]+1 >= block_pos_x[0]) && (snake_pos_x[0]+1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[5])) ;
+// assign front_block = ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) >= block_pos_x[0]) && (snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) <= block_pos_x[5]) &&
+//                       (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) >= block_pos_y[0]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) <= block_pos_y[5])) ;
+
 assign up_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]-1 == block_pos_y[0])) |
                   ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]-1 == block_pos_y[1])) |
                   ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]-1 == block_pos_y[2])) |
@@ -399,13 +407,14 @@ assign snake = ((current_pos_x == snake_pos_x[1]) && (current_pos_y == snake_pos
                ((current_pos_x == snake_pos_x[8]) && (current_pos_y == snake_pos_y[8]) && snake_appear[8]) | 
                ((current_pos_x == snake_pos_x[9]) && (current_pos_y == snake_pos_y[9]) && snake_appear[9]);
 
-assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y == block_pos_y[0])) |
-               ((current_pos_x == block_pos_x[1]) && (current_pos_y == block_pos_y[1])) |
-               ((current_pos_x == block_pos_x[2]) && (current_pos_y == block_pos_y[2])) |
-               ((current_pos_x == block_pos_x[3]) && (current_pos_y == block_pos_y[3])) |
-               ((current_pos_x == block_pos_x[4]) && (current_pos_y == block_pos_y[4])) |
-               ((current_pos_x == block_pos_x[5]) && (current_pos_y == block_pos_y[5]));
-       
+assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y >= block_pos_y[0]) && (current_pos_y <= block_pos_y[5]));
+
+// assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y == block_pos_y[0])) |
+//                ((current_pos_x == block_pos_x[1]) && (current_pos_y == block_pos_y[1])) |
+//                ((current_pos_x == block_pos_x[2]) && (current_pos_y == block_pos_y[2])) |
+//                ((current_pos_x == block_pos_x[3]) && (current_pos_y == block_pos_y[3])) |
+//                ((current_pos_x == block_pos_x[4]) && (current_pos_y == block_pos_y[4])) |
+//                ((current_pos_x == block_pos_x[5]) && (current_pos_y == block_pos_y[5]));    
 
 /////////////////////////////////////////////////////////////snake
 always @(posedge clk or negedge reset_n) begin
@@ -476,6 +485,106 @@ always @ (posedge clk) begin
 end
 // End of the AGU code.
 // ------------------------------------------------------------------------
+
+reg [11:0]score;
+wire hell_mode;
+reg minus;
+reg [31:0] hell_timer;
+reg [9:0] hell_counter;
+
+assign hell_mode = usr_sw[3];
+
+always@(posedge clk) begin
+	if(~reset_n) hell_timer <= 0;
+	else begin
+		if(hell_timer == 100000000) hell_timer <= 0;
+		else hell_timer <= hell_timer + 1;
+	end
+end
+always@(posedge clk) begin
+	if(~reset_n) hell_counter <= 0;
+	else begin
+		if(hell_timer == 100000000) begin
+			if(hell_mode) begin
+				if(hell_counter == 1) begin
+					hell_counter <= 0;
+					minus <= 1;
+				end
+				else begin
+					hell_counter <= hell_counter + 1;
+					minus <= 0;
+				end
+			end
+			else begin
+				if(hell_counter == 4) begin
+					hell_counter <= 0;
+					minus <= 1;
+				end
+				else begin
+					hell_counter <= hell_counter + 1;
+					minus <= 0;
+				end
+			end
+		end
+		else hell_counter <= hell_counter;
+	end
+end
+
+
+always@(posedge clk) begin
+	if(~reset_n) score <= 5;
+	else begin
+		if(eat && snake_clock == 0) begin
+			score[0 +: 4] <= score[0 +:4] + 3;
+			if(score[0 +: 4] > 9) begin
+				score[0 +: 4] <= score[0 +: 4] - 10;
+				score[4 +: 4] <= score[4 +: 4] + 1;
+			end
+			if(score[4 +: 4] > 9) begin
+				score[4 +: 4] <= score[4 +: 4] - 10;
+				score[8 +: 4] <= score[8 +: 4] + 1;
+			end
+		end
+		else if((bump) | ((hit_wall_timer | front_block) && hit_wall_timer == 100000000) && snake_speed == 0)begin
+			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= 9;
+				score[8 +: 4] <= score[8 +: 4] - 1;
+			end
+			else if(score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= score[4 +: 4] - 1;
+			end
+			else score[0 +: 4] <= score[0 +: 4] - 1;
+		end
+		else if((bump) | ((hit_wall_timer | front_block) && hit_wall_timer == 30000000) && snake_speed == 1)begin
+			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= 9;
+				score[8 +: 4] <= score[8 +: 4] - 1;
+			end
+			else if(score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= score[4 +: 4] - 1;
+			end
+			else score[0 +: 4] <= score[0 +: 4] - 1;
+		end
+		else if(minus) begin
+			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= 9;
+				score[8 +: 4] <= score[8 +: 4] - 1;
+			end
+			else if(score[4 +: 4] == 0) begin
+				score[0 +: 4] <= 9;
+				score[4 +: 4] <= score[4 +: 4] - 1;
+			end
+			else score[0 +: 4] <= score[0 +: 4] - 1;
+		end
+	end
+end
+
+
 
 // ------------------------------------------------------------------------
 // Send the video data in the sram to the VGA controller

@@ -13,7 +13,8 @@ module sram
   input is_food, input food_small,
   input is_snake, input is_snake_head, input is_bumped,
   input is_block, input block_transparent,
-  input [5:0] current_pos_x, input [5:0] current_pos_y);
+  input [5:0] current_pos_x, input [5:0] current_pos_y,
+  input [3:0]score_2, [3:0]score_1, [3:0]score_0);
 
 // Declaration of the memory cells
  (* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
@@ -67,13 +68,19 @@ localparam score_addr = 50700;
 localparam press_addr = 59163;
 
 reg [32:0] addr;
+
 // ------------------------------------
 // SRAM read operation
 // ------------------------------------
+
 always@(posedge clk) begin
   if (en & we) data_o <= data_i;
+  else if ((current_pos_x >= 48 && current_pos_x < 53) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_2*5000) + (b_y*10) + b_x];
+//   else if ((current_pos_x >= 55 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_1*5000) + (b_y*10) + b_x];
+//   else if ((current_pos_x >= 58 && current_pos_x < 63) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_0*5000) + (b_y*10) + b_x];
   else if(is_black) data_o <= 12'h000;
   else begin
+    
     if(is_snake_head) begin
         if(is_bumped) data_o <= RAM[snakehead_rev_addr + (b_y*10) + b_x];
         else data_o <= RAM[snakehead_addr + (b_y*10) + b_x];
