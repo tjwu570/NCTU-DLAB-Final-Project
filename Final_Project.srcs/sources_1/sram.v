@@ -69,15 +69,16 @@ localparam press_addr = 59163;
 
 reg [32:0] addr;
 
+
 // ------------------------------------
 // SRAM read operation
 // ------------------------------------
 
 always@(posedge clk) begin
   if (en & we) data_o <= data_i;
-  else if ((current_pos_x >= 48 && current_pos_x < 53) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_2*5000) + (b_y*10) + b_x];
-//   else if ((current_pos_x >= 55 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_1*5000) + (b_y*10) + b_x];
-//   else if ((current_pos_x >= 58 && current_pos_x < 63) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (score_0*5000) + (b_y*10) + b_x];
+  else if ((current_pos_x >= 48 && current_pos_x < 53) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 480];
+  else if ((current_pos_x >= 53 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 530];
+  else if ((current_pos_x >= 58 && current_pos_x < 63) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 580];
   else if(is_black) data_o <= 12'h000;
   else begin
     

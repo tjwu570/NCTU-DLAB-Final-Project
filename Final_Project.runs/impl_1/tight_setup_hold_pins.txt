@@ -1,7 +1,0 @@
-+====================+===================+=================+
-| Launch Setup Clock | Launch Hold Clock | Pin             |
-+====================+===================+=================+
-| sys_clk_pin        | sys_clk_pin       | score_reg[9]/D  |
-| sys_clk_pin        | sys_clk_pin       | score_reg[11]/D |
-| sys_clk_pin        | sys_clk_pin       | score_reg[10]/D |
-+--------------------+-------------------+-----------------+

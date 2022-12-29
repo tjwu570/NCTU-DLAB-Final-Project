@@ -371,3 +371,118 @@ program_hw_devices [get_hw_devices xc7a35t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Thu Dec 29 23:59:08 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Thu Dec 29 23:59:08 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:03:59 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:03:59 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:09:29 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:09:29 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:11:25 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:11:25 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:13:11 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:13:11 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:34:41 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:34:41 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+reset_run synth_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:38:56 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:38:56 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:42:06 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:42:06 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 00:56:24 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 00:56:24 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:04:55 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:04:55 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:05:30 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:05:30 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
