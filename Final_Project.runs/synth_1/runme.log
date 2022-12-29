@@ -10,7 +10,7 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source final.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 378.816 ; gain = 63.699
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 378.238 ; gain = 61.688
 Command: read_checkpoint -auto_incremental -incremental C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -23,10 +23,10 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 3036
+INFO: [Synth 8-7075] Helper process launched with PID 8952
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1192.152 ; gain = 408.645
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1192.297 ; gain = 409.875
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'final' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
 INFO: [Synth 8-6157] synthesizing module 'vga_sync' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/vga_sync.v:19]
@@ -43,39 +43,59 @@ WARNING: [Synth 8-689] width (2) of port connection 'btn_output' does not match 
 INFO: [Synth 8-6157] synthesizing module 'sram' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:8]
 	Parameter DATA_WIDTH bound to: 12 - type: integer 
 	Parameter ADDR_WIDTH bound to: 18 - type: integer 
-	Parameter RAM_SIZE bound to: 461700 - type: integer 
-INFO: [Synth 8-3876] $readmem data file 'images.mem' is read successfully [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:23]
+	Parameter RAM_SIZE bound to: 511700 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'images.mem' is read successfully [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:24]
 INFO: [Synth 8-6155] done synthesizing module 'sram' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:8]
 INFO: [Synth 8-6155] done synthesizing module 'final' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
-WARNING: [Synth 8-3848] Net addr in module/entity sram does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:38]
-WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:456]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[1] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[3] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[4] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[5] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-6014] Unused sequential element block_pos_y_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:186]
-WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:255]
+WARNING: [Synth 8-3848] Net addr in module/entity sram does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:69]
+WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:468]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[1] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[3] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[4] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[5] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-6014] Unused sequential element block_pos_y_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:188]
+WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:257]
 WARNING: [Synth 8-3848] Net usr_led in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:24]
 WARNING: [Synth 8-3848] Net zero in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:97]
+WARNING: [Synth 8-7129] Port x[9] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[8] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[7] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[6] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[1] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[0] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[9] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[8] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[7] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[6] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[1] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[0] in module sram is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[3] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[2] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[1] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[0] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_sw[3] in module final is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1517.344 ; gain = 733.836
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1517.344 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1403.973 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -86,32 +106,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/final_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1570.402 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1403.973 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1570.402 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1403.973 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1570.402 ; gain = 786.895
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1570.402 ; gain = 786.895
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1403.973 ; gain = 621.551
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -119,13 +139,16 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 3     
-	   2 Input   19 Bit       Adders := 6     
-	   2 Input   10 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 4     
 	   2 Input    8 Bit       Adders := 1     
 	   2 Input    7 Bit       Adders := 2     
 	   4 Input    6 Bit       Adders := 2     
 	   2 Input    6 Bit       Adders := 4     
 	   2 Input    4 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
 	               12 Bit    Registers := 2     
@@ -136,11 +159,12 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 4     
 	                1 Bit    Registers := 31    
 +---RAMs : 
-	            5410K Bit	(461700 X 12 bit)          RAMs := 1     
+	            5996K Bit	(511700 X 12 bit)          RAMs := 1     
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 1     
-	   2 Input   19 Bit        Muxes := 3     
-	   2 Input   12 Bit        Muxes := 2     
+	   4 Input   12 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 4     
 	   2 Input    1 Bit        Muxes := 27    
 	   3 Input    1 Bit        Muxes := 1     
@@ -160,12 +184,36 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP data_o2, operation Mode is: (C:0x38400)+A*(B:0x1e0).
-DSP Report: operator data_o2 is absorbed into DSP data_o2.
-DSP Report: operator data_o2 is absorbed into DSP data_o2.
-DSP Report: Generating DSP data_o1, operation Mode is: C+A*(B:0x1e0).
-DSP Report: operator data_o1 is absorbed into DSP data_o1.
-DSP Report: operator data_o2 is absorbed into DSP data_o1.
+WARNING: [Synth 8-7129] Port x[9] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[8] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[7] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[6] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[1] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x[0] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[9] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[8] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[7] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[6] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[1] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port y[0] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_x[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_x[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_x[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_x[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_x[1] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_y[5] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_y[4] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_y[3] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_y[2] in module sram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port current_pos_y[1] in module sram is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[3] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[2] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_led[1] in module final is either unconnected or has no load
@@ -177,10 +225,8 @@ WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "fi
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
-WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
-WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:50 ; elapsed = 00:01:54 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:31 ; elapsed = 00:01:34 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -190,20 +236,10 @@ Distributed RAM: Preliminary Mapping Report (see note below)
 +------------+--------------+-----------+----------------------+------------------+
 |Module Name | RTL Object   | Inference | Size (Depth x Width) | Primitives       | 
 +------------+--------------+-----------+----------------------+------------------+
-|final       | ram0/RAM_reg | Implied   | 512 K x 12           | RAM64M x 202020  | 
+|final       | ram0/RAM_reg | Implied   | 512 K x 12           | RAM64M x 159920  | 
 +------------+--------------+-----------+----------------------+------------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
-
-DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------+-------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping             | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+-------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|sram        | (C:0x38400)+A*(B:0x1e0) | 10     | 9      | 18     | -      | 19     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|sram        | C+A*(B:0x1e0)           | 10     | 9      | 10     | -      | 19     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-+------------+-------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -211,13 +247,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:05 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:37 ; elapsed = 00:01:41 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Timing Optimization : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -227,7 +263,7 @@ Distributed RAM: Final Mapping Report
 +------------+--------------+-----------+----------------------+------------------+
 |Module Name | RTL Object   | Inference | Size (Depth x Width) | Primitives       | 
 +------------+--------------+-----------+----------------------+------------------+
-|final       | ram0/RAM_reg | Implied   | 512 K x 12           | RAM64M x 202020  | 
+|final       | ram0/RAM_reg | Implied   | 512 K x 12           | RAM64M x 159920  | 
 +------------+--------------+-----------+----------------------+------------------+
 
 ---------------------------------------------------------------------------------
@@ -237,7 +273,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:03 ; elapsed = 00:02:07 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:01:50 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -255,50 +291,41 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished IO Insertion : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
-
-DSP Final Report (the ' indicates corresponding REG is set)
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|sram        | C+A'*B      | 10     | 9      | 18     | -      | 19     | 1    | 0    | 0    | -    | -     | 0    | 0    | 
-|sram        | C'+A'*B     | 10     | 9      | 10     | -      | 19     | 1    | 0    | 0    | -    | -     | 0    | 0    | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -307,50 +334,49 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     1|
-|2     |CARRY4  |    97|
-|3     |DSP48E1 |     2|
-|5     |LUT1    |    16|
-|6     |LUT2    |    68|
-|7     |LUT3    |    57|
-|8     |LUT4    |    90|
-|9     |LUT5    |   172|
-|10    |LUT6    |   437|
-|11    |MUXF7   |    17|
-|12    |RAM64M  |   203|
-|13    |FDCE    |    76|
-|14    |FDPE    |    51|
-|15    |FDRE    |   272|
-|16    |FDSE    |    12|
-|17    |IBUF    |     9|
-|18    |OBUF    |    14|
-|19    |OBUFT   |     4|
-+------+--------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    81|
+|3     |LUT1   |    15|
+|4     |LUT2   |    34|
+|5     |LUT3   |    61|
+|6     |LUT4   |    97|
+|7     |LUT5   |   167|
+|8     |LUT6   |   341|
+|9     |MUXF7  |     6|
+|10    |RAM64M |   135|
+|11    |FDCE   |    76|
+|12    |FDPE   |    51|
+|13    |FDRE   |   273|
+|14    |FDSE   |    12|
+|15    |IBUF   |     9|
+|16    |OBUF   |    14|
+|17    |OBUFT  |     4|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:53 ; elapsed = 00:02:11 . Memory (MB): peak = 3581.355 ; gain = 2744.789
-Synthesis Optimization Complete : Time (s): cpu = 00:02:09 ; elapsed = 00:02:14 . Memory (MB): peak = 3581.355 ; gain = 2797.848
+Synthesis finished with 0 errors, 0 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:39 ; elapsed = 00:01:54 . Memory (MB): peak = 2910.398 ; gain = 2127.977
+Synthesis Optimization Complete : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 2910.398 ; gain = 2127.977
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 3581.355 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 319 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2910.398 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 222 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3581.355 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2910.398 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 203 instances were transformed.
-  RAM64M => RAM64M (RAMD64E(x4)): 203 instances
+  A total of 135 instances were transformed.
+  RAM64M => RAM64M (RAMD64E(x4)): 135 instances
 
-Synth Design complete, checksum: 7e4e2240
+Synth Design complete, checksum: fb94ab75
 INFO: [Common 17-83] Releasing license: Synthesis
-34 Infos, 34 Warnings, 0 Critical Warnings and 0 Errors encountered.
+34 Infos, 82 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 3581.355 ; gain = 3175.223
+synth_design: Time (s): cpu = 00:01:59 ; elapsed = 00:02:03 . Memory (MB): peak = 2910.398 ; gain = 2504.848
 INFO: [Common 17-1381] The checkpoint 'C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file final_utilization_synth.rpt -pb final_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 19:57:42 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 23:29:48 2022...

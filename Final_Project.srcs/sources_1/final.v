@@ -138,7 +138,9 @@ sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(511700))
           .is_black(background_is_black), .color_change(usr_sw[0]),
           .is_food(this_pos_is_food), .food_small(food_size),
           .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head), .is_bumped(red), 
-          .is_block(this_pos_is_block), .block_transparent(usr_sw[1]));
+          .is_block(this_pos_is_block), .block_transparent(usr_sw[1]),
+          .current_pos_x(current_pos_x), .current_pos_y(current_pos_y)
+          );
 assign sram_we = zero; // In this demo, we do not write the SRAM. However, if
                              // you set 'sram_we' to 0, Vivado fails to synthesize
                              // ram0 as a BRAM -- this is a bug in Vivado.
@@ -427,7 +429,7 @@ always@(posedge clk) begin
         food_size <= 0;
     end
     else begin
-        if(food_clock == 5*10000000) begin
+        if(food_clock == 50000000) begin
             food_clock <= 0;
             food_size <= ~food_size;
         end
@@ -450,15 +452,15 @@ always@(posedge clk) begin
     end
 end
 /////////////////////////////////////////////////////////////score
-always@(posedge clk) begin
-    if(~reset_n) begin
+// always@(posedge clk) begin
+//     if(~reset_n) begin
         
-    end
-    else begin
-        if(score) this_pos_is_score <= 0;
-        else this_pos_is_score <= 0;
-    end
-end
+//     end
+//     else begin
+//         if(score) this_pos_is_score <= 0;
+//         else this_pos_is_score <= 0;
+//     end
+// end
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 always @ (posedge clk) begin
