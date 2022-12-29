@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Dec 29 17:45:59 2022
+| Date         : Thu Dec 29 18:12:44 2022
 | Host         : DESKTOP-42NSTD8 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file final_control_sets_placed.rpt
 | Design       : final
@@ -58,41 +58,41 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              13 |           10 |
-| No           | No                    | Yes                    |               7 |            6 |
-| No           | Yes                   | No                     |             204 |           71 |
+| No           | No                    | No                     |              14 |            9 |
+| No           | No                    | Yes                    |               7 |            7 |
+| No           | Yes                   | No                     |             204 |           73 |
 | Yes          | No                    | No                     |               4 |            1 |
-| Yes          | No                    | Yes                    |              60 |           26 |
-| Yes          | Yes                   | No                     |              63 |           24 |
+| Yes          | No                    | Yes                    |              60 |           19 |
+| Yes          | Yes                   | No                     |              62 |           23 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------+------------------------------------+----------------------------------+------------------+----------------+--------------+
-|    Clock Signal   |            Enable Signal           |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
-+-------------------+------------------------------------+----------------------------------+------------------+----------------+--------------+
-|  clk_divider0/CLK |                                    |                                  |                1 |              1 |         1.00 |
-|  clk_divider0/CLK |                                    | vs0/reset0                       |                2 |              2 |         1.00 |
-|  clk_IBUF_BUFG    | snake_length[3]_i_1_n_0            |                                  |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG    | btn_db2/snake_pos_y_reg[1][5][0]   | vs0/reset0                       |                4 |              6 |         1.50 |
-|  clk_IBUF_BUFG    | btn_db2/snake_pos_y_reg[1][5]_0[0] | vs0/reset0                       |                3 |              6 |         2.00 |
-|  clk_IBUF_BUFG    |                                    | clk_divider0/counter[7]_i_1_n_0  |                3 |              8 |         2.67 |
-|  clk_divider0/CLK | vs0/h_count_next                   | vs0/mod2_reg_reg_1[0]            |                3 |             10 |         3.33 |
-|  clk_divider0/CLK | vs0/pixel_tick                     | vs0/mod2_reg_reg_0[0]            |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG    |                                    | background_is_black_reg          |                9 |             11 |         1.22 |
-|  clk_IBUF_BUFG    | vs0/pixel_tick                     | vs0/SR[0]                        |                8 |             11 |         1.38 |
-|  clk_IBUF_BUFG    |                                    | btn_db0/clear                    |                6 |             22 |         3.67 |
-|  clk_IBUF_BUFG    |                                    | btn_db1/clear                    |                6 |             22 |         3.67 |
-|  clk_IBUF_BUFG    |                                    | btn_db2/clear                    |                6 |             22 |         3.67 |
-|  clk_IBUF_BUFG    |                                    | btn_db3/clear                    |                6 |             22 |         3.67 |
-|  clk_IBUF_BUFG    |                                    | btn_db0/snake_clock0             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG    |                                    | food_clock[0]_i_1_n_0            |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG    | btn_db0/reset_n                    | btn_db0/prev_btn_level_reg[0][0] |                9 |             32 |         3.56 |
-|  clk_IBUF_BUFG    |                                    | vs0/reset0                       |               23 |             38 |         1.65 |
-|  clk_IBUF_BUFG    | btn_db2/E[0]                       | vs0/reset0                       |               19 |             48 |         2.53 |
-|  clk_IBUF_BUFG    |                                    |                                  |              212 |            824 |         3.89 |
-+-------------------+------------------------------------+----------------------------------+------------------+----------------+--------------+
++-------------------+------------------------------------+---------------------------------+------------------+----------------+--------------+
+|    Clock Signal   |            Enable Signal           |         Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------+------------------------------------+---------------------------------+------------------+----------------+--------------+
+|  clk_divider0/CLK |                                    |                                 |                1 |              1 |         1.00 |
+|  clk_divider0/CLK |                                    | vs0/reset0                      |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG    | snake_length[3]_i_1_n_0            |                                 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG    | btn_db2/snake_pos_y_reg[1][5][0]   | vs0/reset0                      |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG    | btn_db2/snake_pos_y_reg[1][5]_0[0] | vs0/reset0                      |                3 |              6 |         2.00 |
+|  clk_IBUF_BUFG    |                                    | clk_divider0/counter[7]_i_1_n_0 |                2 |              8 |         4.00 |
+|  clk_divider0/CLK | vs0/pixel_tick                     | vs0/mod2_reg_reg_0[0]           |                3 |             10 |         3.33 |
+|  clk_divider0/CLK | vs0/h_count_next                   | vs0/mod2_reg_reg_1[0]           |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG    |                                    | background_is_black_reg         |                8 |             11 |         1.38 |
+|  clk_IBUF_BUFG    | vs0/pixel_tick                     | vs0/SR[0]                       |                7 |             11 |         1.57 |
+|  clk_IBUF_BUFG    |                                    | btn_db1/clear                   |                6 |             22 |         3.67 |
+|  clk_IBUF_BUFG    |                                    | btn_db2/clear                   |                6 |             22 |         3.67 |
+|  clk_IBUF_BUFG    |                                    | btn_db3/clear                   |                6 |             22 |         3.67 |
+|  clk_IBUF_BUFG    |                                    | btn_db0/clear                   |                6 |             22 |         3.67 |
+|  clk_IBUF_BUFG    | btn_db0/reset_n_0                  | btn_db0/hit_wall_timer_reg[17]  |                8 |             31 |         3.88 |
+|  clk_IBUF_BUFG    |                                    | btn_db0/reset_n                 |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG    |                                    | food_clock[0]_i_1_n_0           |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG    |                                    | vs0/reset0                      |               28 |             38 |         1.36 |
+|  clk_IBUF_BUFG    | btn_db2/E[0]                       | vs0/reset0                      |               14 |             48 |         3.43 |
+|  clk_IBUF_BUFG    |                                    |                                 |              210 |            825 |         3.93 |
++-------------------+------------------------------------+---------------------------------+------------------+----------------+--------------+
 
 

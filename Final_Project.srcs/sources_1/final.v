@@ -266,13 +266,22 @@ end
 
 always@(posedge clk) begin
     if(~reset_n) begin
-        for(i=0;i<5;i=i+1) snake_appear[i] <= 1;
-        for(i=5;i<10;i=i+1) snake_appear[i] <= 0;
+        snake_appear[0] <= 1;
+        snake_appear[1] <= 1;
+        snake_appear[2] <= 1;
+        snake_appear[3] <= 1;
+        snake_appear[4] <= 1;
+        snake_appear[5] <= 0;
+        snake_appear[6] <= 0;
+        snake_appear[7] <= 0;
+        snake_appear[8] <= 0;
+        snake_appear[9] <= 0;
     end
     else begin
-        if(eat) begin
+        if(eat)begin
             snake_appear[snake_length] = 1;
-            snake_length = snake_length + 1;
+            if (snake_length<=8) 
+                snake_length = snake_length + 1;
         end
     end
 end

@@ -10,7 +10,7 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source final.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 377.949 ; gain = 63.184
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 377.848 ; gain = 58.988
 Command: read_checkpoint -auto_incremental -incremental C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -23,10 +23,10 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11364
+INFO: [Synth 8-7075] Helper process launched with PID 5712
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1192.578 ; gain = 409.324
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1193.074 ; gain = 408.410
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'final' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
 INFO: [Synth 8-6157] synthesizing module 'vga_sync' [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/vga_sync.v:19]
@@ -46,37 +46,36 @@ INFO: [Synth 8-6157] synthesizing module 'sram' [C:/Users/tjwin/Documents/DLAB_F
 	Parameter RAM_SIZE bound to: 461700 - type: integer 
 INFO: [Synth 8-3876] $readmem data file 'images.mem' is read successfully [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'sram' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:8]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:284]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:284]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:285]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:285]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:286]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:286]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:287]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:287]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:288]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:288]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:377]
-WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:377]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:378]
-WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:378]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:379]
-WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:379]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:380]
-WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:380]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:381]
-WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:381]
+WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:286]
+WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:286]
+WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:287]
+WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:287]
+WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:288]
+WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:288]
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:289]
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:289]
+WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:290]
+WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:290]
+WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:379]
+WARNING: [Synth 8-324] index 5 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:379]
+WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:380]
+WARNING: [Synth 8-324] index 6 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:380]
+WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:381]
+WARNING: [Synth 8-324] index 7 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:381]
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:382]
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:382]
+WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:383]
+WARNING: [Synth 8-324] index 9 out of range [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:383]
 INFO: [Synth 8-6155] done synthesizing module 'final' (0#1) [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:19]
 WARNING: [Synth 8-3848] Net addr in module/entity sram does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/sram.v:38]
-WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:439]
+WARNING: [Synth 8-6014] Unused sequential element pixel_addr_reg was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:441]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[1] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[3] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[4] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_x_reg[5] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
 WARNING: [Synth 8-6014] Unused sequential element block_pos_y_reg[2] was removed.  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:187]
-CRITICAL WARNING: [Synth 8-5413] Mix of synchronous and asynchronous control for register snake_clock_reg in module final. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:238]
-WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:254]
+WARNING: [Synth 8-7137] Register hit_wall_timer_reg in module final has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:256]
 WARNING: [Synth 8-3848] Net usr_led in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:24]
 WARNING: [Synth 8-3848] Net zero in module/entity final does not have driver. [C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/sources_1/final.v:98]
 WARNING: [Synth 8-7129] Port usr_led[3] in module final is either unconnected or has no load
@@ -85,18 +84,18 @@ WARNING: [Synth 8-7129] Port usr_led[1] in module final is either unconnected or
 WARNING: [Synth 8-7129] Port usr_led[0] in module final is either unconnected or has no load
 WARNING: [Synth 8-7129] Port usr_sw[3] in module final is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1518.645 ; gain = 733.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1518.645 ; gain = 733.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1518.645 ; gain = 733.980
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1507.246 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1518.645 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -107,32 +106,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/final_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1507.246 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1543.078 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1507.246 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1543.078 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1543.078 ; gain = 758.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1543.078 ; gain = 758.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1543.078 ; gain = 758.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1507.246 ; gain = 723.992
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1543.078 ; gain = 758.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -163,7 +162,7 @@ Detailed RTL Component Info :
 	   2 Input   19 Bit        Muxes := 3     
 	   2 Input   12 Bit        Muxes := 2     
 	   2 Input    6 Bit        Muxes := 4     
-	   2 Input    1 Bit        Muxes := 25    
+	   2 Input    1 Bit        Muxes := 27    
 	   3 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -201,7 +200,7 @@ WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "fi
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "final/ram0/RAM_reg",trying to implement using LUTRAM
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:01:46 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:50 ; elapsed = 00:01:56 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -232,13 +231,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:55 ; elapsed = 00:01:57 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:02 ; elapsed = 00:02:09 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:55 ; elapsed = 00:01:58 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Timing Optimization : Time (s): cpu = 00:02:03 ; elapsed = 00:02:10 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -258,7 +257,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:56 ; elapsed = 00:01:59 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Technology Mapping : Time (s): cpu = 00:02:05 ; elapsed = 00:02:12 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -276,37 +275,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished IO Insertion : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -332,14 +331,14 @@ Report Cell Usage:
 |      |Cell    |Count |
 +------+--------+------+
 |1     |BUFG    |     1|
-|2     |CARRY4  |   102|
+|2     |CARRY4  |    97|
 |3     |DSP48E1 |     2|
-|5     |LUT1    |    19|
-|6     |LUT2    |    68|
-|7     |LUT3    |    52|
-|8     |LUT4    |    93|
-|9     |LUT5    |   164|
-|10    |LUT6    |   410|
+|5     |LUT1    |    15|
+|6     |LUT2    |    67|
+|7     |LUT3    |    59|
+|8     |LUT4    |    89|
+|9     |LUT5    |   165|
+|10    |LUT6    |   415|
 |11    |MUXF7   |    17|
 |12    |RAM64M  |   203|
 |13    |FDCE    |    43|
@@ -351,28 +350,27 @@ Report Cell Usage:
 |19    |OBUFT   |     4|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:11 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:48 ; elapsed = 00:02:03 . Memory (MB): peak = 3591.215 ; gain = 2807.961
-Synthesis Optimization Complete : Time (s): cpu = 00:02:03 ; elapsed = 00:02:05 . Memory (MB): peak = 3591.215 ; gain = 2807.961
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:56 ; elapsed = 00:02:17 . Memory (MB): peak = 3562.266 ; gain = 2753.168
+Synthesis Optimization Complete : Time (s): cpu = 00:02:12 ; elapsed = 00:02:19 . Memory (MB): peak = 3562.266 ; gain = 2777.602
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 3591.215 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 324 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 3562.266 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 319 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3591.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3562.266 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 203 instances were transformed.
   RAM64M => RAM64M (RAMD64E(x4)): 203 instances
 
-Synth Design complete, checksum: 12b88a6c
+Synth Design complete, checksum: a46eb4ca
 INFO: [Common 17-83] Releasing license: Synthesis
-34 Infos, 54 Warnings, 1 Critical Warnings and 0 Errors encountered.
+34 Infos, 54 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:09 ; elapsed = 00:02:12 . Memory (MB): peak = 3591.215 ; gain = 3186.180
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:27 . Memory (MB): peak = 3562.266 ; gain = 3157.078
 INFO: [Common 17-1381] The checkpoint 'C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file final_utilization_synth.rpt -pb final_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 17:45:09 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 29 18:11:48 2022...
