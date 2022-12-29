@@ -93,7 +93,7 @@ end
 
 endmodule
 
-
+/* // original module, not supposed to use 
 module sram_background
  (input clk, input we, input en,
   input  is_black,
@@ -157,3 +157,4 @@ begin
 end
 
 endmodule
+*/

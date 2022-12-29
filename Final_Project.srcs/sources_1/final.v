@@ -69,12 +69,11 @@ reg [5:0] current_pos_y = 0;
 reg [3:0] b_x;
 reg [3:0] b_y;
 
-reg [3:0]food_amount = 10;
 reg [5:0] food_pos_x [0:9];
 reg [5:0] food_pos_y [0:9];
 reg [3:0] snake_length = 5;
-reg [5:0] snake_pos_x[0:4];
-reg [5:0] snake_pos_y[0:4];
+reg [5:0] snake_pos_x[0:9];
+reg [5:0] snake_pos_y[0:9];
 reg [7:0]block_amount = 6;
 reg [5:0] block_pos_x [0:100];
 reg [5:0] block_pos_y [0:100];
@@ -299,43 +298,48 @@ always @(posedge clk or negedge reset_n) begin
         snake_pos_x[9] <= 6'd29; snake_pos_y[9] <= 6'd40; // 開始會有左上角那一格
     end
     else begin
+        // going right 
         if (btn_pressed[0] && snake_pos_x[0] >= snake_pos_x[1] && !right_block && !hit_right_wall) begin // if we want to change color while bumping into wall, add a if else statement below (if (right_block...))
             
             snake_pos_y[0] <= snake_pos_y[0];
             snake_pos_x[0] <= snake_pos_x[0]+1;
-            for (i=1;i<5;i=i+1) begin
+            for (i=1;i<10;i=i+1) begin
                 snake_pos_x[i] <= snake_pos_x[i-1];
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
+        // going left
         else if (btn_pressed[1] && snake_pos_x[0] <= snake_pos_x[1] && !left_block && !hit_left_wall) begin
             snake_pos_y[0] <= snake_pos_y[0];
             snake_pos_x[0] <= snake_pos_x[0]-1;
-            for (i=1;i<5;i=i+1) begin
+            for (i=1;i<10;i=i+1) begin
                 snake_pos_x[i] <= snake_pos_x[i-1];
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
+        // going up
         else if (btn_pressed[2] && snake_pos_y[0] <= snake_pos_y[1] && !up_block && !hit_up_wall) begin
             snake_pos_y[0] <= snake_pos_y[0]-1;
             snake_pos_x[0] <= snake_pos_x[0];
-            for (i=1;i<5;i=i+1) begin
+            for (i=1;i<10;i=i+1) begin
                 snake_pos_x[i] <= snake_pos_x[i-1];
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
+        // going down
         else if (btn_pressed[3] && snake_pos_y[0] >= snake_pos_y[1] && !down_block && !hit_down_wall) begin
             snake_pos_y[0] <= snake_pos_y[0]+1;
             snake_pos_x[0] <= snake_pos_x[0];
-            for (i=1;i<5;i=i+1) begin
+            for (i=1;i<10;i=i+1) begin
                 snake_pos_x[i] <= snake_pos_x[i-1];
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
         end
+        // going in the original direction, if no button pressed
         else if (snake_clock == 0 && !front_block && !hit_wall)  begin
             snake_pos_x[0] <= snake_pos_x[0] + (snake_pos_x[0]-snake_pos_x[1]);
             snake_pos_y[0] <= snake_pos_y[0] + (snake_pos_y[0]-snake_pos_y[1]);
-            for (i=1;i<5;i=i+1) begin
+            for (i=1;i<10;i=i+1) begin
                 snake_pos_x[i] <= snake_pos_x[i-1];
                 snake_pos_y[i] <= snake_pos_y[i-1];
             end
@@ -347,10 +351,10 @@ assign eat = (snake_head && food);
 
 always@(posedge clk) begin
     if(~reset_n) begin
-        for(i=0;i<food_amount;i=i+1) food_appear[i] <= 1;
+        for(i=0;i<10;i=i+1) food_appear[i] <= 1;
     end
     else if(eat) begin
-        for(i=0;i<food_amount;i=i+1) begin
+        for(i=0;i<10;i=i+1) begin
             if((snake_pos_x[0] == food_pos_x[i]) && (snake_pos_y[0] == food_pos_y[i])) begin
                 food_appear[i] <= 0;
             end
