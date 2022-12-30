@@ -7,14 +7,36 @@
 
 module sram
 #(parameter DATA_WIDTH = 8, ADDR_WIDTH = 19, RAM_SIZE = 65536)
- (input clk, input we, input en,
-  input  [9:0] x, input [9:0] y,input  [DATA_WIDTH-1 : 0] data_i,output reg [DATA_WIDTH-1 : 0] data_o, input [3:0] b_x,input [3:0] b_y,
-  input is_black,input color_change,
-  input is_food, input food_small,
-  input is_snake, input is_snake_head, input is_bumped,
-  input is_block, input block_transparent,
-  input [5:0] current_pos_x, input [5:0] current_pos_y,
-  input [3:0]score_2, [3:0]score_1, [3:0]score_0);
+ (
+    input clk,
+    input we,
+    input en,
+    input [9:0] x,
+    input [9:0] y,
+    input [DATA_WIDTH-1 : 0] data_i,
+    output reg [DATA_WIDTH-1 : 0] data_o,
+    input [3:0] b_x,
+    input [3:0] b_y,
+    input is_black,
+    input color_change,
+    input is_food,
+    input food_small,
+    input is_snake, 
+    input is_snake_head, 
+    input is_bumped,
+    input is_block, 
+    input block_transparent,
+    input show_start,
+    input show_end,
+    input show_score,
+    input [5:0] current_pos_x, 
+    input [5:0] current_pos_y,
+    input [3:0] score_2, 
+    input [3:0] score_1, 
+    input [3:0] score_0
+    
+
+  );
 
 // Declaration of the memory cells
  (* ram_style = "block" *) reg [DATA_WIDTH-1 : 0] RAM [RAM_SIZE - 1:0];
@@ -67,7 +89,7 @@ localparam nine_addr = 45700;
 localparam score_addr = 50700;
 localparam press_addr = 59163;
 
-reg [32:0] addr;
+// reg [32:0] addr;
 
 
 // ------------------------------------
@@ -75,18 +97,27 @@ reg [32:0] addr;
 // ------------------------------------
 
 always@(posedge clk) begin
-  if (en & we) data_o <= data_i;
-  else if ((current_pos_x >= 48 && current_pos_x < 53) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 480];
-  else if ((current_pos_x >= 53 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 530];
-  else if ((current_pos_x >= 58 && current_pos_x < 63) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + (y-100)*50 + x - 580];
+//   if (show_start) begin
+//     if ((x >= 200 && x < 517) && (y >= 300 && y < 369)) data_o <= RAM[press_addr + (y-200)*317 + x - 200];
+//     else data_o <= 12'h000;
+//   end
+//   else if (show_score) begin
+//     if ((current_pos_x >= 53 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + score_1*5000 + (y-100)*50 + x - 530];
+//     else if ((current_pos_x >= 58 && current_pos_x < 63) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + score_0*5000 + (y-100)*50 + x - 580];
+//   end
+  if (show_start) data_o <= 12'h000;
+  else if (show_end)  begin
+    if ((x >= 200 && x < 417) && ( y >= 300 && y < 339)) data_o <= RAM[score_addr + (y-300)*217 + x - 200];
+  end
+  else if ((current_pos_x >= 53 && current_pos_x < 58) && (current_pos_y >= 10 && current_pos_y < 20)) data_o <= RAM[zero_addr + score_0*5000 + (y-100)*50 + x - 530];
   else if(is_black) data_o <= 12'h000;
   else begin
     
-    if(is_snake_head) begin
+    if(is_snake_head& !(RAM[snakehead_addr + (b_y*10) + b_x] == 12'h003)) begin
         if(is_bumped) data_o <= RAM[snakehead_rev_addr + (b_y*10) + b_x];
         else data_o <= RAM[snakehead_addr + (b_y*10) + b_x];
     end
-    else if(is_snake) begin
+    else if(is_snake& !(RAM[snake_addr + (b_y*10) + b_x] == 12'h003)) begin
         if(is_bumped) data_o <= RAM[snake_rev_addr + (b_y*10) + b_x];
         else data_o <= RAM[snake_addr + (b_y*10) + b_x];
     end
@@ -119,11 +150,11 @@ end
 // ------------------------------------
 // SRAM write operation
 // ------------------------------------
- always@(posedge clk)
- begin
-   if (en & we)
-     RAM[addr] <= data_i;
- end
+//  always@(posedge clk)
+//  begin
+//    if (en & we)
+//      RAM[addr] <= data_i;
+//  end
 
 endmodule
 

@@ -42,6 +42,9 @@ wire [11:0] data_in;
 wire [11:0] data_out;
 wire        sram_we, sram_en;
 
+assign usr_led = score[3:0];
+reg [11:0]score;
+
 // General VGA control signals
 wire vga_clk;         // 50MHz clock for VGA control
 wire video_on;        // when video_on is 0, the VGA controller is sending
@@ -72,8 +75,11 @@ reg [3:0] b_y;
 reg [5:0] food_pos_x [0:9];
 reg [5:0] food_pos_y [0:9];
 reg [3:0] snake_length = 5;
-reg [5:0] snake_pos_x[0:9];
-reg [5:0] snake_pos_y[0:9];
+reg [5:0] snake_pos_x[0:9] ; //= {6'd20, 6'd21, 6'd22, 6'd23, 6'd24, 6'd25, 6'd26, 6'd27, 6'd28, 6'd29}
+
+reg [5:0] snake_pos_y[0:9] ; //= {6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40};;
+
+
 reg [7:0] block_amount = 6;
 reg [5:0] block_pos_x [0:100];
 reg [5:0] block_pos_y [0:100];
@@ -140,7 +146,8 @@ sram #(.DATA_WIDTH(12), .ADDR_WIDTH(18), .RAM_SIZE(71526))
           .is_snake(this_pos_is_snake), .is_snake_head(this_pos_is_snake_head), .is_bumped(red), 
           .is_block(this_pos_is_block), .block_transparent(usr_sw[1]),
           .current_pos_x(current_pos_x), .current_pos_y(current_pos_y),
-          .score_2(score[11:8]), .score_1(score[7:4]), .score_0(score[3:0])
+          .score_2(score[11:8]), .score_1(score[7:4]), .score_0(score[3:0]), 
+          .show_start(show_start), .show_end(show_end), .show_score(show_score)
           );
 assign sram_we = zero; // In this demo, we do not write the SRAM. However, if
                              // you set 'sram_we' to 0, Vivado fails to synthesize
@@ -244,7 +251,7 @@ assign hit_down_wall = (snake_pos_y[0]==47);
 assign hit_wall = (snake_pos_x[0]==0 && snake_pos_x[1]==1) | (snake_pos_x[0]==47 && snake_pos_x[1]==46) | (snake_pos_y[0]==0 && snake_pos_y[1]==1) | (snake_pos_y[0]==47 && snake_pos_y[1]==46);
                      
 always @(posedge clk) begin
-  if (~reset_n || bump) snake_clock <= 0;
+  if (~reset_n || bump || show_start) snake_clock <= 0;
   else if (snake_speed && snake_clock >= 30000000) snake_clock <= 0;
   else if (!snake_speed && snake_clock >= 100000000) snake_clock <= 0;
   else snake_clock <= snake_clock + 1;
@@ -258,7 +265,7 @@ assign bump = (btn_pressed[0] && (right_block | hit_right_wall)) |
               (btn_pressed[3] && (down_block | hit_down_wall)); // if we want to count score, we need to add the snake clock count like (bump  && snake_count == 100000000) 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake move
 always @(posedge clk or negedge reset_n) begin
-    if (~reset_n) red <= 0;
+    if (~reset_n || show_start) red <= 0;
     else begin
         if (bump) red <= 1;
         else if(hit_wall | front_block) begin
@@ -274,7 +281,7 @@ always @(posedge clk or negedge reset_n) begin
 end
 
 always@(posedge clk) begin
-    if(~reset_n) begin
+    if(~reset_n || show_start) begin
         snake_appear[0] <= 1;
         snake_appear[1] <= 1;
         snake_appear[2] <= 1;
@@ -297,7 +304,7 @@ always@(posedge clk) begin
     end
 end
 always @(posedge clk or negedge reset_n) begin
-    if (~reset_n) begin
+    if (~reset_n || show_start) begin
         snake_pos_x[0] <= 6'd20; snake_pos_y[0] <= 6'd40;
         snake_pos_x[1] <= 6'd21; snake_pos_y[1] <= 6'd40;
         snake_pos_x[2] <= 6'd22; snake_pos_y[2] <= 6'd40;
@@ -362,7 +369,7 @@ end
 assign eat = (snake_head && food);
 
 always@(posedge clk) begin
-    if(~reset_n) begin
+    if(~reset_n || show_start) begin
         for(i=0;i<10;i=i+1) food_appear[i] <= 1;
     end
     else if(eat) begin
@@ -375,7 +382,7 @@ always@(posedge clk) begin
 end
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////draw
 always@(posedge clk) begin
-    if(~reset_n) begin
+    if(~reset_n || show_start) begin
         current_pos_x <= 0;
         current_pos_y <= 0;
     end
@@ -418,14 +425,14 @@ assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y >= block_pos
 
 /////////////////////////////////////////////////////////////snake
 always @(posedge clk or negedge reset_n) begin
-    if (~reset_n) this_pos_is_snake <= 0;
+    if (~reset_n || show_start) this_pos_is_snake <= 0;
     else begin
         if (snake) this_pos_is_snake <= 1;
         else this_pos_is_snake <= 0;
     end
 end
 always @(posedge clk or negedge reset_n) begin
-    if (~reset_n) this_pos_is_snake_head <= 0;
+    if (~reset_n || show_start) this_pos_is_snake_head <= 0;
     else begin
         if (snake_head) this_pos_is_snake_head <= 1;
         else this_pos_is_snake_head <= 0;
@@ -433,7 +440,7 @@ always @(posedge clk or negedge reset_n) begin
 end
 /////////////////////////////////////////////////////////////food
 always@(posedge clk) begin
-    if(~reset_n) begin
+    if(~reset_n || show_start) begin
         food_clock <= 0;
         food_size <= 0;
     end
@@ -446,7 +453,7 @@ always@(posedge clk) begin
     end
 end
 always@(posedge clk) begin
-    if(~reset_n) this_pos_is_food <= 0;
+    if(~reset_n || show_start) this_pos_is_food <= 0;
     else begin
         if(food) this_pos_is_food <= 1;
         else this_pos_is_food <= 0;
@@ -454,7 +461,7 @@ always@(posedge clk) begin
 end
 /////////////////////////////////////////////////////////////block
 always@(posedge clk) begin
-    if(~reset_n) this_pos_is_block <= 0;
+    if(~reset_n || show_start) this_pos_is_block <= 0;
     else begin
         if(block) this_pos_is_block <= 1;
         else this_pos_is_block <= 0;
@@ -486,7 +493,6 @@ end
 // End of the AGU code.
 // ------------------------------------------------------------------------
 
-reg [11:0]score;
 wire hell_mode;
 reg minus;
 reg [31:0] hell_timer;
@@ -497,14 +503,14 @@ assign hell_mode = usr_sw[3];
 always@(posedge clk) begin
 	if(~reset_n) hell_timer <= 0;
 	else begin
-		if(hell_timer == 100000000) hell_timer <= 0;
+		if(hell_timer > 1000000000) hell_timer <= 0;
 		else hell_timer <= hell_timer + 1;
 	end
 end
 always@(posedge clk) begin
 	if(~reset_n) hell_counter <= 0;
 	else begin
-		if(hell_timer == 100000000) begin
+		if(hell_timer == 1000000000) begin
 			if(hell_mode) begin
 				if(hell_counter == 1) begin
 					hell_counter <= 0;
@@ -515,71 +521,120 @@ always@(posedge clk) begin
 					minus <= 0;
 				end
 			end
-			else begin
-				if(hell_counter == 4) begin
-					hell_counter <= 0;
-					minus <= 1;
-				end
-				else begin
-					hell_counter <= hell_counter + 1;
-					minus <= 0;
-				end
-			end
+			// else begin
+			// 	if(hell_counter == 4) begin
+			// 		hell_counter <= 0;
+			// 		minus <= 1;
+			// 	end
+			// 	else begin
+			// 		hell_counter <= hell_counter + 1;
+			// 		minus <= 0;
+			// 	end
+			// end
 		end
 		else hell_counter <= hell_counter;
 	end
 end
 
+wire die;
+assign die = (score == 0) | (score > 8);
+localparam [1:0] start=0, run=1, _wait=2, show_result=3;
+reg [1:0] P, P_next;
 
 always@(posedge clk) begin
-	if(~reset_n) score <= 5;
+	if(~reset_n) P <= start;
+	else P <= P_next;
+end
+reg [31:0] output_counter;
+
+always@(posedge clk) begin
+  if (~reset_n || show_start) output_counter <= 0;
+  else begin
+    if((P == run && P_next == _wait) || (output_counter > 100000000)) output_counter <= 0;
+    else output_counter <= output_counter+1;
+end
+end 
+always@(*) begin
+	case(P)
+		start:
+			if(btn_pressed[3]) P_next <= run;
+			else P_next <= start;
+		run:
+			if(die) P_next <= _wait;
+			else P_next <= run;
+		_wait:
+            if (output_counter == 100000000) P_next <= show_result;
+			else P_next <= _wait;
+		show_result:
+			if(btn_pressed[3]) P_next <= start;
+			else P_next <= show_result;
+    endcase
+end
+
+wire show_end, show_start, show_score;
+assign show_score = (P == _wait || P == run);
+assign show_start = (P == start);
+assign show_end = (P == show_result);
+
+
+always@(posedge clk) begin
+	if(~reset_n || show_start) score <= 5;
+    else if (P == _wait && P_next == show_result && P == show_result) score <= score;
 	else begin
-		if(eat && snake_clock == 0) begin
-			score[0 +: 4] <= score[0 +:4] + 3;
-			if(score[0 +: 4] > 9) begin
-				score[0 +: 4] <= score[0 +: 4] - 10;
-				score[4 +: 4] <= score[4 +: 4] + 1;
-			end
-			if(score[4 +: 4] > 9) begin
-				score[4 +: 4] <= score[4 +: 4] - 10;
-				score[8 +: 4] <= score[8 +: 4] + 1;
-			end
+		if(eat) begin
+
+            if (score[0+:4]>6) begin score[0+:4]<=0;
+            if (score[4+:4]==9) begin score[0+:4]<=0;
+            score[8+:4] <= score[8+:4] + 1;
+            end else score[4+:4] <= score[4+:4] + 1;
+            end else score[0+:4] <= score[0+:4] + 1;
+
+			// score[0 +: 4] <= score[0 +:4] + 3;
+			// if(score[0 +: 4] > 9) begin
+			// 	score[0 +: 4] <= score[0 +: 4] - 10;
+			// 	score[4 +: 4] <= score[4 +: 4] + 1;
+            //     if(score[4 +: 4] > 9) begin
+            //         score[4 +: 4] <= score[4 +: 4] - 10;
+            //         score[8 +: 4] <= score[8 +: 4] + 1;
+            //     end     
+            // end
 		end
 		else if((bump) | ((hit_wall_timer | front_block) && hit_wall_timer == 100000000) && snake_speed == 0)begin
-			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= 9;
-				score[8 +: 4] <= score[8 +: 4] - 1;
-			end
-			else if(score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= score[4 +: 4] - 1;
-			end
-			else score[0 +: 4] <= score[0 +: 4] - 1;
+
+            if (score[0+:4]==0) begin score[0+:4]<=9;
+            if (score[4+:4]==0) begin score[0+:4]<=9;
+            if (score[8+:4] == 0) score[8+:4] <= 0; else score[8+:4] <= score[8+:4] - 1;
+            end else score[4+:4] <= score[4+:4] - 1;
+            end else score[0+:4] <= score[0+:4] - 1;
+
+			// if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
+			// 	score[0 +: 4] <= 9;
+			// 	score[4 +: 4] <= 9;
+			// 	score[8 +: 4] <= score[8 +: 4] - 1;
+			// end
+			// else if(score[4 +: 4] == 0) begin
+			// 	score[0 +: 4] <= 9;
+			// 	score[4 +: 4] <= score[4 +: 4] - 1;
+			// end
+			// else score[0 +: 4] <= score[0 +: 4] - 1;
 		end
 		else if((bump) | ((hit_wall_timer | front_block) && hit_wall_timer == 30000000) && snake_speed == 1)begin
-			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= 9;
-				score[8 +: 4] <= score[8 +: 4] - 1;
-			end
-			else if(score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= score[4 +: 4] - 1;
-			end
-			else score[0 +: 4] <= score[0 +: 4] - 1;
+			
+            if (score[0+:4]==0) begin score[0+:4]<=9;
+            if (score[4+:4]==0) begin score[0+:4]<=9;
+            if (score[8+:4] == 0) score[8+:4] <= 0; else score[8+:4] <= score[8+:4] - 1;
+            end else score[4+:4] <= score[4+:4] - 1;
+            end else score[0+:4] <= score[0+:4] - 1;
+
 		end
 		else if(minus) begin
-			if(score[0 +: 4] == 0 && score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= 9;
-				score[8 +: 4] <= score[8 +: 4] - 1;
-			end
-			else if(score[4 +: 4] == 0) begin
-				score[0 +: 4] <= 9;
-				score[4 +: 4] <= score[4 +: 4] - 1;
-			end
-			else score[0 +: 4] <= score[0 +: 4] - 1;
+
+            if (score[0+:4]==0) begin score[0+:4]<=9;
+            if (score[4+:4]==0) begin score[0+:4]<=9;
+            if (score[8+:4] == 0) score[8+:4] <= 0; else score[8+:4] <= score[8+:4] - 1;
+            end else score[4+:4] <= score[4+:4] - 1;
+            end else score[0+:4] <= score[0+:4] - 1;
+
 		end
 	end
 end

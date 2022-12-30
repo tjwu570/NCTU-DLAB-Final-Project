@@ -486,3 +486,420 @@ program_hw_devices [get_hw_devices xc7a35t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210319A43760A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319A43760A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:22:49 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:22:49 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:28:47 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:28:47 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:35:41 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:35:41 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:37:04 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:37:04 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:45:58 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:45:58 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 01:53:44 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 01:53:44 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:01:56 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:01:56 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:08:45 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:08:45 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:10:29 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:10:29 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:15:08 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:15:08 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+report_utilization -name utilization_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:29:21 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:29:21 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:29:47 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:29:47 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:31:12 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:31:12 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 02:50:28 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 02:50:28 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 03:15:34 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 03:15:34 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 03:47:50 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 03:47:50 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 04:42:05 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 04:42:05 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 04:43:19 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 04:43:19 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:09:26 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:09:26 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:19:01 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:19:01 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:27:57 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:27:57 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:29:22 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:29:22 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:31:44 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:31:44 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210319A43760A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319A43760A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:33:50 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:33:51 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+close_hw_manager
+close_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:37:53 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:37:53 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:40:02 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:40:02 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:42:57 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:42:57 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. PID not specified
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:43:03 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:43:03 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 05:55:11 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 05:55:11 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 4632.371 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 7074 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'final' is not ideal for floorplanning, since the cellview 'sram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 4686.461 ; gain = 10.156
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 4686.461 ; gain = 10.156
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 4686.461 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 4747.555 ; gain = 115.184
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2022.2
+  **** Build date : Oct 14 2022 at 05:18:10
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2022.2.0
+  ****** Build date   : Oct 05 2022-07:25:37
+    **** Build number : 2022.2.1664925937
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 5102.410 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319A43760A
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/final.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:10:19 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:10:19 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:10:50 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:10:50 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:13:50 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:13:50 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:16:25 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:16:25 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:16:40 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:16:40 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:18:27 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:18:27 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:25:15 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:25:15 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:33:06 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:33:06 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.srcs/utils_1/imports/synth_1/lab10.dcp with file C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/final.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Dec 30 06:46:34 2022] Launched synth_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/synth_1/runme.log
+[Fri Dec 30 06:46:34 2022] Launched impl_1...
+Run output will be captured here: C:/Users/tjwin/Documents/DLAB_FP_2022/Final_Project.runs/impl_1/runme.log
+close_hw_manager
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 30 06:50:05 2022...
