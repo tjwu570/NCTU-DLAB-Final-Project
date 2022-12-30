@@ -6,7 +6,7 @@
 // must match the size of the sram block exactly.
 
 module sram
-#(parameter DATA_WIDTH = 8, ADDR_WIDTH = 19, RAM_SIZE = 65536)
+#(parameter DATA_WIDTH = 8, ADDR_WIDTH = 19, RAM_SIZE = 67626)
  (
     input clk,
     input we,
@@ -87,7 +87,7 @@ localparam seven_addr = 35700;
 localparam eight_addr = 40700;
 localparam nine_addr = 45700;
 localparam score_addr = 50700;
-localparam press_addr = 59163;
+// localparam press_addr = 59163;
 
 // reg [32:0] addr;
 
