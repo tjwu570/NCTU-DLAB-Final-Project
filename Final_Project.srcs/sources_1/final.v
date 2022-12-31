@@ -81,8 +81,8 @@ reg [5:0] snake_pos_y[0:9] ; //= {6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd40, 6'd4
 
 
 reg [7:0] block_amount = 6;
-reg [5:0] block_pos_x [0:100];
-reg [5:0] block_pos_y [0:100];
+reg [5:0] block_pos_x [0:5];
+reg [5:0] block_pos_y [0:5];
 
 wire snake_speed;
 reg food_appear[0:9];
@@ -193,56 +193,73 @@ always@(posedge clk) begin
 end
 
 always@(posedge clk) begin
-    block_pos_x[0] <= 6'd3; block_pos_y[0] <= 6'd1;
-    block_pos_x[1] <= 6'd3; block_pos_y[1] <= 6'd2;
-    block_pos_x[2] <= 6'd3; block_pos_y[2] <= 6'd3;
-    block_pos_x[3] <= 6'd3; block_pos_y[3] <= 6'd4;
-    block_pos_x[4] <= 6'd3; block_pos_y[4] <= 6'd5;
-    block_pos_x[5] <= 6'd3; block_pos_y[5] <= 6'd6;
+    block_pos_x[0] <= 6'd3; block_pos_y[0] <= 6'd11;
+    block_pos_x[1] <= 6'd3; block_pos_y[1] <= 6'd16;
+    block_pos_x[2] <= 6'd10; block_pos_y[2] <= 6'd20;
+    block_pos_x[3] <= 6'd20; block_pos_y[3] <= 6'd20;
+    block_pos_x[4] <= 6'd32; block_pos_y[4] <= 6'd25;
+    block_pos_x[5] <= 6'd34; block_pos_y[5] <= 6'd30;
 end
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake bump
-// assign up_block = ((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]-1 >= block_pos_y[0]) && (snake_pos_y[0]-1 <= block_pos_y[5])) ;
-// assign down_block = ((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]+1 >= block_pos_y[0]) && (snake_pos_y[0]+1 <= block_pos_y[5])) ;
-// assign left_block = ((snake_pos_x[0]-1 >= block_pos_x[0]) && (snake_pos_x[0]-1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[5])) ;
-// assign right_block = ((snake_pos_x[0]+1 >= block_pos_x[0]) && (snake_pos_x[0]+1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[5])) ;
-// assign front_block = ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) >= block_pos_x[0]) && (snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) <= block_pos_x[5]) &&
-//                       (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) >= block_pos_y[0]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) <= block_pos_y[5])) ;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////snake bump
+assign up_block = ((((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[1]) && (snake_pos_y[0]-1 >= block_pos_y[0]) && (snake_pos_y[0]-1 <= block_pos_y[1])) || ((snake_pos_x[0] >= block_pos_x[2]) && (snake_pos_x[0] <= block_pos_x[3]) && (snake_pos_y[0]-1 >= block_pos_y[2]) && (snake_pos_y[0]-1 <= block_pos_y[3])) ) || ((snake_pos_x[0] >= block_pos_x[4]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]-1 >= block_pos_y[4]) && (snake_pos_y[0]-1 <= block_pos_y[5])) );
+assign down_block = ((((snake_pos_x[0] >= block_pos_x[0]) && (snake_pos_x[0] <= block_pos_x[1]) && (snake_pos_y[0]+1 >= block_pos_y[0]) && (snake_pos_y[0]+1 <= block_pos_y[1])) || ((snake_pos_x[0] >= block_pos_x[2]) && (snake_pos_x[0] <= block_pos_x[3]) && (snake_pos_y[0]+1 >= block_pos_y[2]) && (snake_pos_y[0]+1 <= block_pos_y[3])) ) || ((snake_pos_x[0] >= block_pos_x[4]) && (snake_pos_x[0] <= block_pos_x[5]) && (snake_pos_y[0]+1 >= block_pos_y[4]) && (snake_pos_y[0]+1 <= block_pos_y[5])) );
+assign left_block = ((((snake_pos_x[0]-1 >= block_pos_x[0]) && (snake_pos_x[0]-1 <= block_pos_x[1]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[1])) || ((snake_pos_x[0]-1 >= block_pos_x[2]) && (snake_pos_x[0]-1 <= block_pos_x[3]) && (snake_pos_y[0] >= block_pos_y[2]) && (snake_pos_y[0] <= block_pos_y[3])) ) || ((snake_pos_x[0]-1 >= block_pos_x[4]) && (snake_pos_x[0]-1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[4]) && (snake_pos_y[0] <= block_pos_y[5])) );
+assign right_block = ((((snake_pos_x[0]+1 >= block_pos_x[0]) && (snake_pos_x[0]+1 <= block_pos_x[1]) && (snake_pos_y[0] >= block_pos_y[0]) && (snake_pos_y[0] <= block_pos_y[1])) || ((snake_pos_x[0]+1 >= block_pos_x[2]) && (snake_pos_x[0]+1 <= block_pos_x[3]) && (snake_pos_y[0] >= block_pos_y[2]) && (snake_pos_y[0] <= block_pos_y[3])) ) || ((snake_pos_x[0]+1 >= block_pos_x[4]) && (snake_pos_x[0]+1 <= block_pos_x[5]) && (snake_pos_y[0] >= block_pos_y[4]) && (snake_pos_y[0] <= block_pos_y[5])) );
+assign front_block = (
+                            ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) >= block_pos_x[0]) && (snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) <= block_pos_x[1]) &&
+                            (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) >= block_pos_y[0]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) <= block_pos_y[1])) 
+                      ||
+                            ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) >= block_pos_x[2]) && (snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) <= block_pos_x[3]) &&
+                            (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) >= block_pos_y[2]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) <= block_pos_y[3])) 
+                    )
+                    || 
+                            ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) >= block_pos_x[4]) && (snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) <= block_pos_x[5]) &&
+                            (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) >= block_pos_y[4]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) <= block_pos_y[5])) 
+                      ;
 
-assign up_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]-1 == block_pos_y[0])) |
-                  ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]-1 == block_pos_y[1])) |
-                  ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]-1 == block_pos_y[2])) |
-                  ((snake_pos_x[0] == block_pos_x[3]) && (snake_pos_y[0]-1 == block_pos_y[3])) |
-                  ((snake_pos_x[0] == block_pos_x[4]) && (snake_pos_y[0]-1 == block_pos_y[4])) |
-                  ((snake_pos_x[0] == block_pos_x[5]) && (snake_pos_y[0]-1 == block_pos_y[5]));
+                      
+assign block = (((current_pos_x >= block_pos_x[0]) && (current_pos_x <= block_pos_x[1]) && (current_pos_y >= block_pos_y[0]) && (current_pos_y <= block_pos_y[1]))
+                ||
+                ((current_pos_x >= block_pos_x[2]) && (current_pos_x <= block_pos_x[3]) && (current_pos_y >= block_pos_y[2]) && (current_pos_y <= block_pos_y[3])) )
+                ||
+                ((current_pos_x >= block_pos_x[4]) && (current_pos_x <= block_pos_x[5]) && (current_pos_y >= block_pos_y[4]) && (current_pos_y <= block_pos_y[5]))
+                ;
 
-assign down_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]+1 == block_pos_y[0])) |
-                    ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]+1 == block_pos_y[1])) |
-                    ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]+1 == block_pos_y[2])) |
-                    ((snake_pos_x[0] == block_pos_x[3]) && (snake_pos_y[0]+1 == block_pos_y[3])) |
-                    ((snake_pos_x[0] == block_pos_x[4]) && (snake_pos_y[0]+1 == block_pos_y[4])) |
-                    ((snake_pos_x[0] == block_pos_x[5]) && (snake_pos_y[0]+1 == block_pos_y[5]));
+// assign up_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]-1 == block_pos_y[0])) |
+//                   ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]-1 == block_pos_y[1])) |
+//                   ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]-1 == block_pos_y[2])) |
+//                   ((snake_pos_x[0] == block_pos_x[3]) && (snake_pos_y[0]-1 == block_pos_y[3])) |
+//                   ((snake_pos_x[0] == block_pos_x[4]) && (snake_pos_y[0]-1 == block_pos_y[4])) |
+//                   ((snake_pos_x[0] == block_pos_x[5]) && (snake_pos_y[0]-1 == block_pos_y[5]));
 
-assign left_block = ((snake_pos_x[0]-1 == block_pos_x[0]) && (snake_pos_y[0] == block_pos_y[0])) |
-                    ((snake_pos_x[0]-1 == block_pos_x[1]) && (snake_pos_y[0] == block_pos_y[1])) |
-                    ((snake_pos_x[0]-1 == block_pos_x[2]) && (snake_pos_y[0] == block_pos_y[2])) |
-                    ((snake_pos_x[0]-1 == block_pos_x[3]) && (snake_pos_y[0] == block_pos_y[3])) |
-                    ((snake_pos_x[0]-1 == block_pos_x[4]) && (snake_pos_y[0] == block_pos_y[4])) |
-                    ((snake_pos_x[0]-1 == block_pos_x[5]) && (snake_pos_y[0] == block_pos_y[5]));
+// assign down_block = ((snake_pos_x[0] == block_pos_x[0]) && (snake_pos_y[0]+1 == block_pos_y[0])) |
+//                     ((snake_pos_x[0] == block_pos_x[1]) && (snake_pos_y[0]+1 == block_pos_y[1])) |
+//                     ((snake_pos_x[0] == block_pos_x[2]) && (snake_pos_y[0]+1 == block_pos_y[2])) |
+//                     ((snake_pos_x[0] == block_pos_x[3]) && (snake_pos_y[0]+1 == block_pos_y[3])) |
+//                     ((snake_pos_x[0] == block_pos_x[4]) && (snake_pos_y[0]+1 == block_pos_y[4])) |
+//                     ((snake_pos_x[0] == block_pos_x[5]) && (snake_pos_y[0]+1 == block_pos_y[5]));
 
-assign right_block = ((snake_pos_x[0]+1 == block_pos_x[0]) && (snake_pos_y[0] == block_pos_y[0])) |
-                     ((snake_pos_x[0]+1 == block_pos_x[1]) && (snake_pos_y[0] == block_pos_y[1])) |
-                     ((snake_pos_x[0]+1 == block_pos_x[2]) && (snake_pos_y[0] == block_pos_y[2])) |
-                     ((snake_pos_x[0]+1 == block_pos_x[3]) && (snake_pos_y[0] == block_pos_y[3])) |
-                     ((snake_pos_x[0]+1 == block_pos_x[4]) && (snake_pos_y[0] == block_pos_y[4])) |
-                     ((snake_pos_x[0]+1 == block_pos_x[5]) && (snake_pos_y[0] == block_pos_y[5]));
+// assign left_block = ((snake_pos_x[0]-1 == block_pos_x[0]) && (snake_pos_y[0] == block_pos_y[0])) |
+//                     ((snake_pos_x[0]-1 == block_pos_x[1]) && (snake_pos_y[0] == block_pos_y[1])) |
+//                     ((snake_pos_x[0]-1 == block_pos_x[2]) && (snake_pos_y[0] == block_pos_y[2])) |
+//                     ((snake_pos_x[0]-1 == block_pos_x[3]) && (snake_pos_y[0] == block_pos_y[3])) |
+//                     ((snake_pos_x[0]-1 == block_pos_x[4]) && (snake_pos_y[0] == block_pos_y[4])) |
+//                     ((snake_pos_x[0]-1 == block_pos_x[5]) && (snake_pos_y[0] == block_pos_y[5]));
 
-assign front_block = ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[0]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[0])) |
-                     ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[1]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[1])) |
-                     ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[2]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[2])) |
-                     ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[3]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[3])) |
-                     ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[4]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[4])) |
-                     ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[5]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[5]));
+// assign right_block = ((snake_pos_x[0]+1 == block_pos_x[0]) && (snake_pos_y[0] == block_pos_y[0])) |
+//                      ((snake_pos_x[0]+1 == block_pos_x[1]) && (snake_pos_y[0] == block_pos_y[1])) |
+//                      ((snake_pos_x[0]+1 == block_pos_x[2]) && (snake_pos_y[0] == block_pos_y[2])) |
+//                      ((snake_pos_x[0]+1 == block_pos_x[3]) && (snake_pos_y[0] == block_pos_y[3])) |
+//                      ((snake_pos_x[0]+1 == block_pos_x[4]) && (snake_pos_y[0] == block_pos_y[4])) |
+//                      ((snake_pos_x[0]+1 == block_pos_x[5]) && (snake_pos_y[0] == block_pos_y[5]));
+
+// assign front_block = ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[0]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[0])) |
+//                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[1]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[1])) |
+//                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[2]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[2])) |
+//                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[3]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[3])) |
+//                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[4]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[4])) |
+//                      ((snake_pos_x[0]+(snake_pos_x[0]-snake_pos_x[1]) == block_pos_x[5]) && (snake_pos_y[0]+(snake_pos_y[0]-snake_pos_y[1]) == block_pos_y[5]));
                      
 assign hit_left_wall = (snake_pos_x[0]==0); 
 assign hit_right_wall = (snake_pos_x[0]==47); 
@@ -414,7 +431,6 @@ assign snake = ((current_pos_x == snake_pos_x[1]) && (current_pos_y == snake_pos
                ((current_pos_x == snake_pos_x[8]) && (current_pos_y == snake_pos_y[8]) && snake_appear[8]) | 
                ((current_pos_x == snake_pos_x[9]) && (current_pos_y == snake_pos_y[9]) && snake_appear[9]);
 
-assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y >= block_pos_y[0]) && (current_pos_y <= block_pos_y[5]));
 
 // assign block = ((current_pos_x == block_pos_x[0]) && (current_pos_y == block_pos_y[0])) |
 //                ((current_pos_x == block_pos_x[1]) && (current_pos_y == block_pos_y[1])) |
@@ -537,7 +553,7 @@ always@(posedge clk) begin
 end
 
 wire die;
-assign die = (score == 0) | (score > 8);
+assign die = (score == 0) | (score > 12'h010);
 localparam [1:0] start=0, run=1, _wait=2, show_result=3;
 reg [1:0] P, P_next;
 
@@ -583,7 +599,7 @@ always@(posedge clk) begin
 	else begin
 		if(eat) begin
 
-            if (score[0+:4]>6) begin score[0+:4]<=0;
+            if (score[0+:4]==9) begin score[0+:4]<=0;
             if (score[4+:4]==9) begin score[0+:4]<=0;
             score[8+:4] <= score[8+:4] + 1;
             end else score[4+:4] <= score[4+:4] + 1;
