@@ -1,9 +1,7 @@
-# DLAB_FP_2022
-DLAB 2022 Final Project 
+# Project Overview
 
-This is a project from some NYCU CS department. 
-
-It's a project for users to play the old classic game "Snake" on Xilinx Arty board. It is also a project for the course "515613數位電路實驗 Digital Circuit Lab".   
+Designed for Xilinx FPGA board, user can play the classical Snake game with buttons on the board.\
+Different modes and mechanisms for gaining extra points are also implemented.
 
 Credits goes to four people who are all contributors of this Github repo.  
 
